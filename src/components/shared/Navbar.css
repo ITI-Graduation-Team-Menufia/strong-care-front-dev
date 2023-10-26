@@ -1,0 +1,7 @@
+.navbar * {
+  color: var(--primary-bg) !important;
+}
+
+ul li {
+  margin-left: 1rem;
+}

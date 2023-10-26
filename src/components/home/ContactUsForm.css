@@ -1,0 +1,23 @@
+.form-btn {
+  width: 20%;
+}
+.contact {
+  margin-bottom: 100px;
+  /* box-shadow: 1px 15px 10px  var(--gray-text); */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  z-index: 2;
+}
+.overlay {
+  /* background-color: #d6d6d636; */
+}
+/* .sec {
+  background-image: url(https://img.freepik.com/free-vector/employee-working-office-interior-workplace-flat-vector-illustration_1150-37487.jpg?w=740&t=st=1696253190~exp=1696253790~hmac=ee75cae697614d1d81a8561c6a6cca001f802c5179f6bf9788f7cb0852b6ce86),
+    url(https://img.freepik.com/free-vector/business-man-working-hard-stock-financial-trade-market-diagram-vector-illustration-flat-design_1150-39773.jpg?w=740&t=st=1696253073~exp=1696253673~hmac=9db3b9ebe7473de57379858feee268c769f3928894268fd39b54d4155a125f22);
+  background-size: cover;
+  background-position: -50px 30px, 1115px 250px;
+
+  background-repeat: no-repeat;
+  background-size: 250px 400px, 240px 300px;
+} */

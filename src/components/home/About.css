@@ -1,0 +1,43 @@
+.about {
+  margin-bottom: 60px;
+}
+.primary-text {
+  color: var(--primary-bg);
+}
+.about-description,
+.distinguish-text,
+.gray-text {
+  color: var(--gray-text);
+}
+.buttons button,
+.request-btn {
+  border-radius: 0;
+  color: var(--white--text);
+  padding: 7.5px 20px;
+  font-size: 16px;
+  border: none;
+}
+.login-btn {
+  background-color: var(--secondary-bg);
+}
+.login-btn:hover {
+  background-color: var(--secondar-light-bg);
+  color: var(--white--text);
+  transition: 0.5s;
+}
+.request-btn {
+  background-color: var(--primary-light-bg);
+}
+.request-btn:hover {
+  background-color: var(--primary-bg);
+  transition: 0.5s;
+}
+
+@media (max-width: 750px) {
+  .about-img {
+    display: none !important;
+  }
+  .about {
+    display: grid !important;
+  }
+}

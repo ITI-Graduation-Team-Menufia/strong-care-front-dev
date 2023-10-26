@@ -1,0 +1,28 @@
+.company {
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .image {
+        width: 200px;
+        height: 200px;
+        background-color: var(--white-text);
+        padding: 10px;
+    }
+
+    .edit-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 5px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--white-text)
+        }
+    }
+}

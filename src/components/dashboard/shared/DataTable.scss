@@ -1,0 +1,29 @@
+.data-table {
+
+    max-width: 80vw;
+    overflow-x: scroll;
+
+    .data-grid {
+        background-color: var(--white-text);
+        padding: 20px;
+
+        .MuiDataGrid-toolbarContainer {
+            flex-direction: row-reverse;
+
+            .MuiButtonBase-root {
+                display: none;
+            }
+        }
+
+        img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .action {
+            cursor: pointer;
+        }
+    }
+}
