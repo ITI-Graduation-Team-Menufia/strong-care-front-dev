@@ -259,5 +259,21 @@
   "register-as-a-company": "تسجيل ك شركة",
   "register-as-a-indevidual": "تسجيل ك فرد",
   "register-as-a-indevidual-disc": "بالتسجيل كفرد في منصتنا يمكنك انشاء طلب صيانة او تعويض لجهازك باستخدام رقم الضمان، نوفر لك حماية لاجهزتك من الاضرار والمخاطر مثل الكسر والسرقة مع خدمة عملاء متخصصة  ",
-  "register-as-a-company-disc": "بالتسجيل كشركة في منصتنا يتيح للشركة تقديم خدمات ضمان مخصصة للعملاء، مما يزيد من الاقبال على منتجاتها ويعزز من رضا العملاء بالاضافة الى تقليل المسؤلية المالية وتحسين التنافسية في السوق  "
+  "register-as-a-company-disc": "بالتسجيل كشركة في منصتنا يتيح للشركة تقديم خدمات ضمان مخصصة للعملاء، مما يزيد من الاقبال على منتجاتها ويعزز من رضا العملاء بالاضافة الى تقليل المسؤلية المالية وتحسين التنافسية في السوق  ",
+
+    "client-name-is-required":"أسم العميل مطلوب",
+  "client-name-error-message":"أسم العميل لا يقل عن 3 احرف",
+  "serialNo-is-required":"الرقم التسلسلي مطلوب",
+  "serial-number-error-message":" من فضلك ادخل رقم تسلسلي صحيح من 8 ل 15 رمز",
+  "device-brand-is-required":"أسم شركة الجهاز مطلوب",
+  "device-brand-error-message":"أسم شركة الجهاز لا يقل عن 3 احرف",
+  "device-type-is-required":" نوع الجهاز مطلوب" ,
+  "device-type-error-message":" نوع الجهاز لا يقل عن 3 احرف",
+  "device-color-is-required":"لون الجهاز مطلوب",
+  "device-color-error-message":"لون الجهاز لا يقل عن 3 احرف",
+  "device-model-is-required":"نوع الجهاز مطلوب",
+  "device-model-error-message":"نوع الجهاز لا يقل عن 3 احرف",
+  "required":"مطلوب",
+  "warranty-duration-required":"فترة الضمان مطلوبة",
+  "is":""
 }

@@ -262,5 +262,21 @@
   "register-as-a-company": "Register as a Company",
   "register-as-a-indevidual": "Register as an Individual",
   "register-as-a-indevidual-disc": "By registering as an individual on our platform, you can create maintenance or compensation requests for your devices using the warranty number. We provide protection for your devices from damages and risks such as breakage and theft, along with dedicated customer support.",
-  "register-as-a-company-disc": "By registering as a company on our platform, your company can offer customized warranty services to customers, increasing the demand for your products, enhancing customer satisfaction, reducing financial liability, and improving competitiveness in the market."
+  "register-as-a-company-disc": "By registering as a company on our platform, your company can offer customized warranty services to customers, increasing the demand for your products, enhancing customer satisfaction, reducing financial liability, and improving competitiveness in the market.",
+
+   "client-name-is-required":"Client name is required",
+  "client-name-error-message":"Client name not less than 3 letters",
+  "serialNo-is-required":"The serial Number is required",
+  "serial-number-error-message":"Please enter a valid serial number with 8 to 15 alphanumeric characters.",
+  "device-brand-is-required":"Device brand is required",
+  "device-brand-error-message":"Device brand not less than 3 letters",
+  "device-type-is-required":"Device type is required",
+  "device-type-error-message":"Device type not less than 3 letters",
+  "device-color-is-required":"Device Color is required",
+  "device-color-error-message":"Device Color not less than 3 letters",
+  "device-model-is-required":"Device model is required",
+  "device-model-error-message":"Device model not less than 3 letters",
+  "client-phone":"Client phone number",
+  "required":"required",
+  "warranty-duration-required":"Warranty duration required"
 }

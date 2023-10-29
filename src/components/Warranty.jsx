@@ -112,7 +112,9 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                  {error.message}
+                  {error.type === "any.required"
+                    ? t("client-name-is-required")
+                    : t('client-name-error-message')}
                 </div>
               )
           )}
@@ -138,7 +140,9 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                  {error.message}
+                  {error.type === "any.required"
+                    ? t("device-brand-is-required")
+                    : t('device-brand-error-message')}
                 </div>
               )
           )}
@@ -166,7 +170,10 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                  {error.message}
+                 {error.type === "any.required"
+                    ? t("device-type-is-required")
+                    : t('device-type-error-message')}
+                  
                 </div>
               )
           )}
@@ -192,7 +199,9 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                  {error.message}
+                 {error.type === "any.required"
+                    ? t("device-color-is-required")
+                    : t('device-color-error-message')}
                 </div>
               )
           )}
@@ -218,12 +227,13 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                  {error.message}
+                  {error.type === "any.required"
+                    ? t("serialNo-is-required")
+                    : t('serial-number-error-message')}
                 </div>
               )
           )}
         </div>
-
         {/* client Phone */}
         <div className=" mb-4 m-auto w-75">
           <input
@@ -243,8 +253,9 @@ export default function Warranty() {
                 <div
                   key={error.message}
                   className="invalid-feedback text-danger"
-                >
-                  {error.message}
+                >                  
+                  {t("client-phone")} {t('is')} {t("required")}
+
                 </div>
               )
           )}
@@ -269,7 +280,7 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                  {error.message}
+                  {t("client-email")} {t('is')} {t("required")}
                 </div>
               )
           )}
@@ -294,7 +305,9 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                  {error.message}
+                  {error.type === "any.required"
+                    ? t("device-model-is-required")
+                    : t('device-model-error-message')}    
                 </div>
               )
           )}
@@ -329,7 +342,7 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                  {error.message}
+                  {t("warranty-duration-required", { errorMessage: error.message })}
                 </div>
               )
           )}
@@ -348,6 +361,7 @@ export default function Warranty() {
           />
           {/* <div className="invalid-feedback"><Trans i18nKey="please-enter"></Trans><Trans i18nKey="agent-identification-number"></Trans></div> */}
         </div>
+
         <div className=" mb-4 m-auto w-75">
           <input
             readOnly
