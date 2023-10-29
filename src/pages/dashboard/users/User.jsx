@@ -231,10 +231,10 @@ export default function User() {
                 <option value="admin">
                   <Trans i18nKey="admin" />
                 </option>
-                <option value="compensation-depart">
+                <option value="compensationDepart">
                   <Trans i18nKey="compensations-dept" />
                 </option>
-                <option value="requests-depart">
+                <option value="insuranceRequestsDepart">
                   <Trans i18nKey="requests-dept" />
                 </option>
               </select>
