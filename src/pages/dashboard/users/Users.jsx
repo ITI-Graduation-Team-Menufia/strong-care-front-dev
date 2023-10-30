@@ -8,7 +8,7 @@ import noAvatarImg from "../../../assets/images/dashboard/noavatar.png";
 import { Spinner } from "../../../components/shared/Spinner";
 
 export default function Users() {
-  const { loading, getAllResources, deleteResource } = useApi();
+  const { loading, getAllResources, deleteResource, editPartOfResource } = useApi();
   const [usersData, setUsersData] = useState([]);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function Users() {
       field: "email",
       type: "email",
       headerName: <Trans i18nKey="email" />,
-      width: 200,
+      width: 250,
       sortable: false,
     },
     {
@@ -117,37 +117,50 @@ export default function Users() {
       headerName: <Trans i18nKey="verified-phone" />,
       width: 150,
       sortable: false,
-    },
-    {
-      field: "actions",
-      headerName: "Actions",
-      width: 200,
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <div className="d-flex gap-4 flex-sm-row flex-column fs-4">
-            <Link
-              to={`${params.row._id}`}
-              className="action text-info"
-              title="View"
-            >
-              <i className="bi bi-pencil-square"></i>
-            </Link>
-            <div
-              className="action text-danger"
-              title="Delete"
-              onClick={() => handleDelete(params.row._id)}
-            >
-              <i className="bi bi-trash"></i>
-            </div>
-          </div>
-        );
-      },
-    },
+    }
   ];
 
-  const handleResetPass = (id) => {
-    console.log(id + " password has been reset");
+  const actionsColumn = {
+    field: "actions",
+    headerName: "Actions",
+    width: 200,
+    sortable: false,
+    renderCell: (params) => {
+      return (
+        <div className="d-flex gap-4 flex-sm-row flex-column fs-4">
+          <Link
+            to={`${params.row._id}`}
+            className="action text-info"
+            title="View"
+          >
+            <i className="bi bi-pencil-square"></i>
+          </Link>
+          <div
+            className="action text-danger"
+            title="Delete"
+            onClick={() => handleDelete(params.row._id)}
+          >
+            <i className="bi bi-trash"></i>
+          </div>
+          <div
+            className="action text-warning"
+            title="reset password"
+            onClick={() => handleResetPass(params.row._id,params.row.email)}
+          >
+            <i className="bi bi-arrow-clockwise"></i>
+          </div>
+        </div>
+      );
+    },
+  };
+  columns.push(actionsColumn);
+
+  const handleResetPass = async (id,email) => {
+    try{
+      await editPartOfResource(id, email, `${baseURL}auth/resetpassword`);
+    }catch(error){
+      console.log(error);
+    }
   };
 
   return (
