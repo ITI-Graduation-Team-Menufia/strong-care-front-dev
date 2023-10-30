@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import logo from "../../../assets/images/logo.png";
 import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import i18next from "i18next";
+import DEFAULT_IMAGE_PROFILE from '../../../assets/images/dashboard/noavatar.png';
 
 export default function Navbar() {
   const { loggedUserData } = useApi();
@@ -35,27 +35,24 @@ export default function Navbar() {
           id="navbarNavDropdown"
         >
           <ul className="navbar-nav ">
-            {/* Language Switcher */}
-            {/* <li className="nav-item">
-              <select className="selectpicker" data-width="fit"
-              onChange={(e)=>{setLanguage(e.target.value); localStorage.setItem('lang', e.target.value)}}>
-                <option data-content={<span className="flag-icon flag-icon-us"></span>} value='en'>English</option>
-                <option data-content={<span className="flag-icon flag-icon-mx"></span>} value='ar'>Arabic</option>
-              </select>
-            </li> */}
             <li className="nav-item">
               <span className="nav-link">
                 <img
-                  src={loggedUserData?.profileImg?.url}
+                  src={loggedUserData?.profileImg?.url || DEFAULT_IMAGE_PROFILE}
                   alt=""
                   className="rounded-circle "
                   style={{ width: "50px", height: "50px", margin: "0 10px" }}
                 />
+                {!loggedUserData && <p class="placeholder-wave">
+                  <span class="placeholder col-12"></span>
+                </p>}
+                {loggedUserData && 
                 <span>
                   {loggedUserData?.firstName + " " + loggedUserData?.lastName}
-                </span>
+                </span>}
               </span>
             </li>
+            {/* Language Switcher */}
             <li className="nav-item d-flex">
               <select
                 value={localStorage.getItem("lng") || "ar"}
