@@ -18,7 +18,7 @@ export default function DataTable(props) {
         initialState={{
           pagination: {
             paginationModel: {
-              pageSize: 8,
+              pageSize: 10,
             },
           },
         }}

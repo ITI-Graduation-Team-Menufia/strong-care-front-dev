@@ -29,7 +29,7 @@ export function Message() {
                 <Trans i18nKey="message-details" />
             </h2>
             {!loading && (
-                <div className="w-75 mx-auto d-flex flex-column mt-5 gap-2" dir='rtl'>
+                <div className="w-75 mx-auto d-flex flex-column mt-5 gap-2">
                     {/* Name */}
                     <div className="form-group">
                         <label>

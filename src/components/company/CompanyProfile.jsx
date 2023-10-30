@@ -95,7 +95,7 @@ export const CompanyProfile = () => {
             </div>
           </div>
           {/* FORM */}
-          <form className="col-md-8 col-12 row justify-content-center align-items-center" dir='rtl'>
+          <form className="col-md-8 col-12 row justify-content-center align-items-center">
             {/* IDENTIFICATION NUMBER */}
             <div className="">
               <label

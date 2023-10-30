@@ -5,7 +5,7 @@ const SignupProgressBar = ({ step }) => {
   const steps = ['البيانات الاساسية', 'البيانات القانونية', 'تأكيد التسجيل'];
 
   return (
-    <div className="container my-5" dir='rtl'>
+    <div className="container my-5">
       <div className="d-flex justify-content-evenly">
         {steps.map((label, index) => (
           <div

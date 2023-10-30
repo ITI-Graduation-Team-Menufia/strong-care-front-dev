@@ -86,7 +86,7 @@ export function PendingRegisteration() {
         <Trans i18nKey="registeration-request-details" />
       </h2>
       {!loading && (
-        <div className="d-flex flex-column flex-sm-row mt-5 gap-2" dir="rtl">
+        <div className="d-flex flex-column flex-sm-row mt-5 gap-2">
           <div className="d-flex flex-column col-12 col-sm-5 gap-3 align-items-center">
             <div className="image-container">
               <img

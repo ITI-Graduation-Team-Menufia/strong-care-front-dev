@@ -33,7 +33,7 @@ export default function Compensation() {
                 <Trans i18nKey="warranty-request-details" />
             </h2>
             {!loading && (
-                <div className="w-75 mx-auto d-flex flex-column mt-5 gap-2" dir='rtl'>
+                <div className="w-75 mx-auto d-flex flex-column mt-5 gap-2">
                     {/* Warranty Number */}
                     <div className="form-group">
                         <label>
