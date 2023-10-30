@@ -97,7 +97,7 @@ export default function Home() {
               <h2 className="text-primary">{value}</h2>
               <span className="mdi mdi-arrow-top-right icon-item"></span>
             </div>
-            <h6 className="text-muted font-weight-normal"></h6>
+            {/* <h6 className="text-muted font-weight-normal"></h6> */}
           </div>
         </div>
       </div>
@@ -123,7 +123,10 @@ export default function Home() {
           {renderCard(
             faFileLines,
             "warranty-contract-number",
-            statistics?.InsuranceRequest_approved,
+            statistics ? statistics.InsuranceRequest_approved :
+              <div class="spinner-grow text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>,
             "potential growth",
             "+3.5%",
             "blue"
@@ -131,7 +134,10 @@ export default function Home() {
           {renderCard(
             faCommentsDollar,
             "warranty-requests-number",
-            statistics?.InsuranceRequest_pending,
+            statistics? statistics.InsuranceRequest_pending :
+            <div class="spinner-grow text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>,
             "potential drop",
             "Potential Drop",
             "green"
@@ -152,7 +158,10 @@ export default function Home() {
           {renderCard(
             faBuilding,
             "companies-number",
-            statistics?.company,
+            statistics ? statistics.company :
+            <div class="spinner-grow text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>,
             "potential growth",
             "Potential Growth",
             "red"
@@ -160,7 +169,10 @@ export default function Home() {
           {renderCard(
             faUser,
             "users-number",
-            statistics?.individual,
+            statistics? statistics.individual :
+            <div class="spinner-grow text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>,
             "potential growth",
             "Potential Growth",
             "orange"
@@ -181,7 +193,10 @@ export default function Home() {
           {renderCard(
             faUser,
             "number-of-warranties-department-employees",
-            statistics?.insuranceRequestsDepart,
+            statistics ? statistics.insuranceRequestsDepart :
+            <div class="spinner-grow text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>,
             "potential growth",
             "Potential Growth",
             "blue"
@@ -189,7 +204,10 @@ export default function Home() {
           {renderCard(
             faUser,
             "number-of-compensations-department-employees",
-            statistics?.compensationDepart,
+            statistics ? statistics.compensationDepart :
+            <div class="spinner-grow text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>,
             "potential growth",
             "Potential Growth",
             "green"
@@ -218,7 +236,10 @@ export default function Home() {
           {renderCard(
             faCommentsDollar,
             "number-of-compensation-requests",
-            statistics?.Compensations,
+            statistics ? statistics.Compensations :
+            <div class="spinner-grow text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>,
             "potential drop",
             "Potential Drop",
             "gold"
