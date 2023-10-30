@@ -2,18 +2,27 @@
 
     max-width: 80vw;
     overflow-x: scroll;
+    // direction: rtl;
 
     .data-grid {
         background-color: var(--white-text);
         padding: 20px;
 
         .MuiDataGrid-toolbarContainer {
-            flex-direction: row-reverse;
+            // flex-direction: row-reverse;
 
             .MuiButtonBase-root {
                 display: none;
             }
         }
+
+        // .MuiDataGrid-columnsContainer {
+        //     direction: 'rtl';
+        // }
+
+        // .MuiDataGrid-virtualScroller {
+        //     direction: 'rtl';
+        // }
 
         img {
             width: 32px;
@@ -25,5 +34,14 @@
         .action {
             cursor: pointer;
         }
+
+        // .tableHeaderStyle {
+        //     direction: rtl;
+        // }
+
+        // .tableCellStyle {
+        //     direction: rtl;
+        // }
+
     }
 }
