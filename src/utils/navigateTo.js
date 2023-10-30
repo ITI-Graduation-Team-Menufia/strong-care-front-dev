@@ -2,8 +2,8 @@ export const navigateTo = (userData) => {
     let path;
     switch (userData?.role) {
         case "admin":
-        case "compensation-depart":
-        case "requests-depart":
+        case "compensationDepart":
+        case "insuranceRequestsDepart":
             path = "/admindashboard";
             break;
         case "company":

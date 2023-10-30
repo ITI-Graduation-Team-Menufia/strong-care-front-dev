@@ -12,7 +12,7 @@ let getAllUsers = () => axios.get(url, {
 let getUserById = (userId) => axios.get(`${url}${userId}`);
 let addNewUser = (user, role) => {
   console.log(role)
-  if (role === 'admin' || role === 'compensation-depart' || role === 'requests-depart') {
+  if (role === 'admin' || role === 'compensationDepart' || role === 'insuranceRequestsDepart') {
     console.log('Adding an admin..');
     return axios.post(`${url}addAdmin`, user, {
       headers: {

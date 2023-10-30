@@ -13,7 +13,7 @@ export const userSchema = Joi.object({
         .required()
         .label('Confirm password')
         .messages({ 'any.only': '{{#label}} does not match' }),
-    // role: Joi.string().valid('company', 'admin', 'individual', 'compensation-depart', 'requests-depart').required(),
+    // role: Joi.string().valid('company', 'admin', 'individual', 'compensationDepart', 'insuranceRequestsDepart').required(),
     // latitude: Joi.string()
     //     .required()
     //     .min(0).max(90),
@@ -30,7 +30,7 @@ export const userِAddSchema = Joi.object({
     }),
     phone: Joi.string().required(),
     password: Joi.string().required().min(8),
-    role: Joi.string().valid('admin', 'compensation-depart', 'requests-depart').required(),
+    role: Joi.string().valid('admin', 'compensationDepart', 'insuranceRequestsDepart').required(),
 });
 export const userِEditSchema = Joi.object({
     firstName: Joi.string().trim().min(2).required(),
