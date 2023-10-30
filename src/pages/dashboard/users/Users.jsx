@@ -5,6 +5,7 @@ import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import { baseURL } from "../../../APIs/baseURL";
 import noAvatarImg from "../../../assets/images/dashboard/noavatar.png";
+import { Spinner } from "../../../components/shared/Spinner";
 
 export default function Users() {
   const { loading, getAllResources, deleteResource } = useApi();
@@ -159,20 +160,21 @@ export default function Users() {
           <Trans i18nKey="add-new-user"></Trans>
         </Link>
       </div>
-      {usersData.length > 0 ? (
-        !loading && (
-          <DataTable
-            columns={columns}
-            rows={usersData}
-            isLoading={loading}
-            pageToRedirectTo="users"
-          />
-        )
+
+      {loading && <Spinner />}
+      {!loading && (usersData?.length > 0 ? (
+        <DataTable
+          columns={columns}
+          rows={usersData}
+          isLoading={loading}
+          pageToRedirectTo="users"
+
+        ></DataTable>
       ) : (
         <h2>
           <Trans i18nKey="no-data-found" />
         </h2>
-      )}
+      ))}
     </div>
   );
 }

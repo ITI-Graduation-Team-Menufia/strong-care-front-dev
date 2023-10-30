@@ -5,6 +5,7 @@ import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import { baseURL } from "../../../APIs/baseURL";
 import { useEffect, useState } from "react";
+import { Spinner } from "../../../components/shared/Spinner";
 
 
 export default function Companies() {
@@ -176,20 +177,21 @@ export default function Companies() {
           <Trans i18nKey="add-new-company" />
         </Link>
       </div>
-      {companiesData.length > 0 ? (
-        !loading && (
-          <DataTable
-            columns={columns}
-            rows={companiesData}
-            isLoading={loading}
-            pageToRedirectTo="companies"
-          ></DataTable>
-        )
+
+      {loading && <Spinner />}
+      {!loading && (companiesData?.length > 0 ? (
+        <DataTable
+          columns={columns}
+          rows={companiesData}
+          isLoading={loading}
+          pageToRedirectTo="companies"
+
+        ></DataTable>
       ) : (
         <h2>
           <Trans i18nKey="no-data-found" />
         </h2>
-      )}
+      ))}
     </div>
   );
 }

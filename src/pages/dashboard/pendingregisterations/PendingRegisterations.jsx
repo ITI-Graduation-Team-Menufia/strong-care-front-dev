@@ -7,6 +7,7 @@ import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import { useEffect, useState } from "react";
 import { baseURL } from "../../../APIs/baseURL";
+import { Spinner } from "../../../components/shared/Spinner";
 
 // COLUMNS FOR DATA TABLE
 const columns = [
@@ -154,20 +155,21 @@ export default function PendingRegisterations() {
           <Trans i18nKey="pending-registerations" />
         </h1>
       </div>
-      {companiesRows.length > 0 ? (
-        !loading && (
-          <DataTable
-            columns={columns}
-            rows={companiesRows}
-            isLoading={loading}
-            pageToRedirectTo="companies"
-          ></DataTable>
-        )
+
+      {loading && <Spinner />}
+      {!loading && (companiesRows?.length > 0 ? (
+        <DataTable
+          columns={columns}
+          rows={companiesRows}
+          isLoading={loading}
+          pageToRedirectTo="companies"
+
+        ></DataTable>
       ) : (
         <h2>
           <Trans i18nKey="no-data-found" />
         </h2>
-      )}
+      ))}
     </div>
   );
 }

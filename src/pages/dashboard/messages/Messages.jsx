@@ -4,6 +4,7 @@ import { Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import DataTable from '../../../components/dashboard/shared/DataTable';
 import { baseURL } from '../../../APIs/baseURL';
+import { Spinner } from '../../../components/shared/Spinner';
 
 export function Messages() {
     const { loading, getAllResources, deleteResource } = useApi();
@@ -103,24 +104,23 @@ export function Messages() {
     columns.push(actionsColumn);
 
     return (
-        <div className="d-flex flex-column gap-2">
+        <div className="d-flex flex-column gap-2 text-center">
             <div className="info d-flex gap-2 align-items-center flex-sm-row flex-column">
                 <h1 className="text-center"><Trans i18nKey='clients-messages' /></h1>
             </div>
-            {messagesData.length > 0 ? (
-                !loading && (
-                    <DataTable
-                        columns={columns}
-                        rows={messagesData}
-                        isLoading={loading}
-                        pageToRedirectTo="compensations"
-                    ></DataTable>
-                )
+            {loading && <Spinner />}
+            {!loading && (messagesData?.length > 0 ? (
+                <DataTable
+                    columns={columns}
+                    rows={messagesData}
+                    isLoading={loading}
+                ></DataTable>
             ) : (
                 <h2>
                     <Trans i18nKey="no-data-found" />
                 </h2>
-            )}
+            ))}
+
         </div>
     )
 }

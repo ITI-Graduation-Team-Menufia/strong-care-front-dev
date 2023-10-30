@@ -4,6 +4,7 @@ import { Trans } from "react-i18next";
 import { useEffect, useState } from "react";
 import { useApi } from "../../../contexts/apiContext";
 import { baseURL } from "../../../APIs/baseURL";
+import { Spinner } from "../../../components/shared/Spinner";
 
 // COLUMNS FOR DATA TABLE
 const columns = [
@@ -90,20 +91,21 @@ export default function Compensations() {
       <div className="info d-flex gap-2 align-items-center flex-sm-row flex-column">
         <h1 className="text-center"><Trans i18nKey='compensations-requests' /></h1>
       </div>
-      {compensationData.length > 0 ? (
-        !loading && (
-          <DataTable
-            columns={columns}
-            rows={compensationData}
-            isLoading={loading}
-            pageToRedirectTo="compensations"
-          ></DataTable>
-        )
+
+      {loading && <Spinner />}
+      {!loading && (compensationData?.length > 0 ? (
+        <DataTable
+          columns={columns}
+          rows={compensationData}
+          isLoading={loading}
+          pageToRedirectTo="compensations"
+
+        ></DataTable>
       ) : (
         <h2>
           <Trans i18nKey="no-data-found" />
         </h2>
-      )}
+      ))}
     </div>
   );
 }

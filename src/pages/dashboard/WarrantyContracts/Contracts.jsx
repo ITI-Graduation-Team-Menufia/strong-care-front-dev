@@ -6,6 +6,7 @@ import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import { useEffect, useState } from "react";
 import { baseURL } from "../../../APIs/baseURL";
+import { Spinner } from "../../../components/shared/Spinner";
 
 // COLUMNS FOR DATA TABLE
 const columns = [
@@ -135,20 +136,21 @@ export default function Contracts() {
       <div className="info d-flex gap-2 align-items-center flex-sm-row flex-column">
         <h1 className="text-center"><Trans i18nKey='warranty-requests'/></h1>
       </div>
-      {insuranceRequestData.length > 0 ? (
-        !loading && (
-          <DataTable
-            columns={columns}
-            rows={insuranceRequestData}
-            isLoading={loading}
-            pageToRedirectTo="contracts"
-          ></DataTable>
-        )
+
+      {loading && <Spinner />}
+      {!loading && (insuranceRequestData?.length > 0 ? (
+        <DataTable
+          columns={columns}
+          rows={insuranceRequestData}
+          isLoading={loading}
+          pageToRedirectTo="contracts"
+
+        ></DataTable>
       ) : (
         <h2>
           <Trans i18nKey="no-data-found" />
         </h2>
-      )}
+      ))}
     </div>
   );
 }

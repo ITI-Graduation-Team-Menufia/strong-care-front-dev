@@ -46,7 +46,7 @@ const options = {
 };
 
 export default function Home() {
-  const { getAllResources } = useApi();
+  const { getAllResources,loading } = useApi();
 
   let [statistics, setStatistics] = useState(null);
 
