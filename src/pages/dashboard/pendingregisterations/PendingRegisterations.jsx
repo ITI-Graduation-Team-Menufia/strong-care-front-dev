@@ -1,8 +1,6 @@
 import DataTable from "../../../components/dashboard/shared/DataTable";
 import noAvatarImg from "../../../assets/images/dashboard/noavatar.png";
 import { Link } from "react-router-dom";
-import useFetch from "../../../hooks/useFetch"; //Custom Hook to fecth all companiesTo be passed to the useFetch custom hook
-import { getAllCompanies } from "../../../APIs/companies"; //To be passed to the useFetch custom hook
 import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import { useEffect, useState } from "react";
@@ -48,7 +46,7 @@ const columns = [
     field: "email",
     type: "email",
     headerName: <Trans i18nKey="email" />,
-    width: 200,
+    width: 250,
     sortable: false,
   },
   {
@@ -95,7 +93,7 @@ const columns = [
 const actionsColumn = {
   field: "actions",
   headerName: <Trans i18nKey="actions" />,
-  width: 200,
+  width: 100,
   sortable: false,
   renderCell: (params) => {
     return (
@@ -105,9 +103,7 @@ const actionsColumn = {
           className="action text-info"
           title="view"
         >
-          <button className="btn btn-outline-info fs-6">
-            <Trans i18nKey="review-request" />
-          </button>
+          <p className='btn btn-info m-0 p-2'><Trans i18nKey='review' /></p>
         </Link>
       </div>
     );

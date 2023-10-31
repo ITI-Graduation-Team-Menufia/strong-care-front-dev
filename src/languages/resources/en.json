@@ -151,6 +151,7 @@
   "warranty-duration": "Warranty Duration",
   "warranty-requests": "Warranty Requests",
   "review-request": "Review Request",
+  "review":"review",
   "actions": "Actions",
   "approve-registeration": "Approve Registeration",
   "reject-registeration": "Reject Registeration",
@@ -278,5 +279,6 @@
   "device-model-error-message":"Device model not less than 3 letters",
   "client-phone":"Client phone number",
   "required":"required",
-  "warranty-duration-required":"Warranty duration required"
+  "warranty-duration-required":"Warranty duration required",
+  "delete": "delete"
 }

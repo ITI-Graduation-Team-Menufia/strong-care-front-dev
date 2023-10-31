@@ -40,7 +40,7 @@ const columns = [
     field: "createdAt",
     type: "string",
     headerName: <Trans i18nKey='created-at'/>,
-    width: 120,
+    width: 150,
     sortable: false,
   },
 ];
@@ -48,7 +48,7 @@ const columns = [
 const actionsColumn = {
   field: "actions",
   headerName: <Trans i18nKey='actions' />,
-  width: 200,
+  width: 100,
   sortable: false,
   renderCell: (params) => {
     return (
@@ -58,7 +58,7 @@ const actionsColumn = {
           className="action text-info"
           title="view"
         >
-          <button className='btn btn-outline-info fs-6'><Trans i18nKey='review-request' /></button>
+          <p className='btn btn-info m-0 p-2'><Trans i18nKey='review' /></p>
         </Link>
       </div>
     );

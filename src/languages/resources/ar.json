@@ -151,6 +151,7 @@
   "warranty-duration": "مدة الضمان",
   "warranty-requests": "طلبات عقود الضمان",
   "review-request": "مراجعة الطلب",
+  "review":"مراجعة",
   "actions": "الإجراءات",
   "approve-registeration": "قبول التسجيل",
   "reject-registeration": "رفض التسجيل",
@@ -275,5 +276,6 @@
   "device-model-error-message":"نوع الجهاز لا يقل عن 3 احرف",
   "required":"مطلوب",
   "warranty-duration-required":"فترة الضمان مطلوبة",
-  "is":""
+  "is":"",
+  "delete":"حذف"
 }

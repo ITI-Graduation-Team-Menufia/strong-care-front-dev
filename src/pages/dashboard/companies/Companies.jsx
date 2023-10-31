@@ -35,7 +35,7 @@ export default function Companies() {
       field: "email",
       type: "email",
       headerName: <Trans i18nKey="email" />,
-      width: 200,
+      width: 250,
       sortable: false,
     },
     {
@@ -55,13 +55,13 @@ export default function Companies() {
     {
       field: "country",
       headerName: <Trans i18nKey="country" />,
-      width: 100,
+      width: 150,
       sortable: false,
     },
     {
       field: "legalLocation",
       headerName: <Trans i18nKey="legal-office" />,
-      width: 100,
+      width: 150,
       sortable: false,
     },
     {
@@ -110,7 +110,7 @@ export default function Companies() {
 
   const actionsColumn = {
     field: "actions",
-    headerName: "Actions",
+    headerName: <Trans i18nKey='actions' />,
     width: 200,
     sortable: false,
     renderCell: (params) => {
@@ -121,14 +121,14 @@ export default function Companies() {
             className="action text-info"
             title="view"
           >
-            <i className="bi bi-pencil-square"></i>
+            <p className='btn btn-info m-0 p-2'><Trans i18nKey='review' /></p>
           </Link>
           <div
             className="action text-danger"
             title="delete"
             onClick={() => handleDelete(params.row._id)}
           >
-            <i className="bi bi-trash"></i>
+            <p className='btn btn-danger m-0 p-2'><Trans i18nKey='delete' /></p>
           </div>
           <div
             className="action text-warning"

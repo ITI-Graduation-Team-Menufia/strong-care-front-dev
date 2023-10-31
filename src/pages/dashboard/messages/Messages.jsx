@@ -56,7 +56,7 @@ export function Messages() {
             field: "email",
             type: "string",
             headerName: <Trans i18nKey='email' />,
-            width: 200,
+            width: 300,
             sortable: false,
         },
         {
@@ -88,14 +88,14 @@ export function Messages() {
                         className="action text-info"
                         title="view"
                     >
-                        <i className="bi bi-pencil-square"></i>
+                        <p className='btn btn-info m-0 p-2'><Trans i18nKey='review' /></p>
                     </Link>
                     <div
                         className="action text-danger"
                         title="delete"
                         onClick={() => handleDelete(params.row._id)}
                     >
-                        <i className="bi bi-trash"></i>
+                        <p className='btn btn-danger m-0 p-2'><Trans i18nKey='delete' /></p>
                     </div>
                 </div>
             );

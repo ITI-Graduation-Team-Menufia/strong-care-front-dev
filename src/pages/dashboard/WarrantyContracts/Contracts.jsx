@@ -1,7 +1,5 @@
 import DataTable from "../../../components/dashboard/shared/DataTable";
 import { Link } from "react-router-dom";
-import useFetch from "../../../hooks/useFetch"; //Custom Hook to fecth all users
-import { getAllRecords } from "../../../APIs/crud"; //To be passed to the useFetch custom hook
 import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import { useEffect, useState } from "react";
@@ -63,7 +61,7 @@ const columns = [
     field: "clientEmail",
     type: "string",
     headerName: <Trans i18nKey='client-email' />,
-    width: 200,
+    width: 250,
     sortable: false,
   },
   {
@@ -84,7 +82,7 @@ const columns = [
     field: "createdAt",
     type: "string",
     headerName: <Trans i18nKey='created-at' />,
-    width: 120,
+    width: 150,
     sortable: false,
   },
 ];
@@ -92,7 +90,7 @@ const columns = [
 const actionsColumn = {
   field: "actions",
   headerName: <Trans i18nKey='actions' />,
-  width: 200,
+  width: 100,
   sortable: false,
   renderCell: (params) => {
     return (
@@ -102,7 +100,7 @@ const actionsColumn = {
           className="action text-info"
           title="view"
         >
-          <button className='btn btn-outline-info fs-6'><Trans i18nKey='review-request' /></button>
+          <p className='btn btn-info m-0 p-2'><Trans i18nKey='review' /></p>
         </Link>
       </div>
     );

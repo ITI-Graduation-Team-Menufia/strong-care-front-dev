@@ -108,7 +108,7 @@ export default function Users() {
       field: "verifiedEmail",
       type: "boolean",
       headerName: <Trans i18nKey="verified-email" />,
-      width: 150,
+      width: 100,
       sortable: false,
     },
     {
@@ -122,8 +122,8 @@ export default function Users() {
 
   const actionsColumn = {
     field: "actions",
-    headerName: "Actions",
-    width: 200,
+    headerName: <Trans i18nKey='actions' />,
+    width: 250,
     sortable: false,
     renderCell: (params) => {
       return (
@@ -133,14 +133,14 @@ export default function Users() {
             className="action text-info"
             title="View"
           >
-            <i className="bi bi-pencil-square"></i>
+            <p className='btn btn-info m-0 p-2'><Trans i18nKey='review' /></p>
           </Link>
           <div
             className="action text-danger"
             title="Delete"
             onClick={() => handleDelete(params.row._id)}
           >
-            <i className="bi bi-trash"></i>
+            <p className='btn btn-danger m-0 p-2'><Trans i18nKey='delete' /></p>
           </div>
           <div
             className="action text-warning"
