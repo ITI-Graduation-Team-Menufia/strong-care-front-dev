@@ -8,7 +8,7 @@ import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 export const FormTwo = () => {
-  const { createResource, getResource, setBaseUrl, setLoggedUserData } =
+  const { createResource, setBaseUrl} =
     useApi();
 
   let [id, setId] = useState(null);
@@ -63,10 +63,10 @@ export const FormTwo = () => {
     }
 
     const companyDataForm = new FormData();
-    companyDataForm.append("country", values.country);
-    companyDataForm.append("noCommercialRegister", values.noCommercialRegister);
+    companyDataForm.append("country", values?.country);
+    companyDataForm.append("noCommercialRegister", values?.noCommercialRegister);
     companyDataForm.append("commission", 20);
-    companyDataForm.append("legalName", values.legalName);
+    companyDataForm.append("legalName", values?.legalName);
     companyDataForm.append("legalLocation", "companyData.legalName");
     companyDataForm.append(
       "commercialRegisterImg",
@@ -103,7 +103,7 @@ export const FormTwo = () => {
               id="validationServer01"
               name="country"
               className={`form-control ${
-                errorList.some((error) => error.context.key === "area")
+                errorList.some((error) => error?.context.key === "area")
                   ? "is-invalid"
                   : ""
               }rounded-0 border-0 border-bottom border-black-50 mb-3`}
@@ -112,12 +112,12 @@ export const FormTwo = () => {
             />
             {errorList.map(
               (error) =>
-                error.context.key === "area" && (
+                error?.context.key === "area" && (
                   <div
-                    key={error.message}
+                    key={error?.message}
                     className="invalid-feedback text-danger"
                   >
-                    {error.message}
+                    {error?.message}
                   </div>
                 )
             )}
@@ -129,7 +129,7 @@ export const FormTwo = () => {
               type="text"
               name="noCommercialRegister"
               className={`form-control ${
-                errorList.some((error) => error.context.key === "recordsNum")
+                errorList?.some((error) => error?.context.key === "recordsNum")
                   ? "is-invalid"
                   : ""
               } rounded-0 border-0 border-bottom border-black-50 mb-3`}
@@ -138,12 +138,12 @@ export const FormTwo = () => {
             />
             {errorList.map(
               (error) =>
-                error.context.key === "recordsNum" && (
+                error?.context.key === "recordsNum" && (
                   <div
                     key={error.message}
                     className="invalid-feedback text-danger"
                   >
-                    {error.message}
+                    {error?.message}
                   </div>
                 )
             )}
@@ -157,7 +157,7 @@ export const FormTwo = () => {
               id="validationServer03"
               placeholder={t("legal-name")}
               className={`form-control ${
-                errorList.some((error) => error.context.key === "legalName")
+                errorList?.some((error) => error?.context.key === "legalName")
                   ? "is-invalid"
                   : ""
               } rounded-0 border-0 border-bottom border-black-50 mb-3`}
@@ -165,12 +165,12 @@ export const FormTwo = () => {
             />
             {errorList.map(
               (error) =>
-                error.context.key === "legalName" && (
+                error?.context.key === "legalName" && (
                   <div
-                    key={error.message}
+                    key={error?.message}
                     className="invalid-feedback text-danger"
                   >
-                    {error.message}
+                    {error?.message}
                   </div>
                 )
             )}
@@ -184,20 +184,20 @@ export const FormTwo = () => {
               id="validationServer04"
               placeholder={t("legal-office")}
               className={`form-control ${
-                errorList.some((error) => error.context.key === "legalOffice")
+                errorList.some((error) => error?.context.key === "legalOffice")
                   ? "is-invalid"
                   : ""
               } rounded-0 border-0 border-bottom border-black-50 mb-3`}
               onChange={handleInputChange}
             />
-            {errorList.map(
+            {errorList?.map(
               (error) =>
                 error.context.key === "legalOffice" && (
                   <div
-                    key={error.message}
+                    key={error?.message}
                     className="invalid-feedback text-danger"
                   >
-                    {error.message}
+                    {error?.message}
                   </div>
                 )
             )}

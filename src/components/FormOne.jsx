@@ -71,9 +71,8 @@ export const FormOne = () => {
     userData.append("email", values.email);
 
     let res = await createResource(userData);
-    if (res.message === "success") {
-      setToken(res.token);
-      // setBaseUrl(`${baseURL}users`);
+    if (res?.message === "success") {
+      setToken(res?.token);
       setSubmitted(true);
     }
   };
@@ -150,12 +149,12 @@ export const FormOne = () => {
               />
               {errorList.map(
                 (error) =>
-                  error.context.key === "lastName" && (
+                  error?.context.key === "lastName" && (
                     <div
-                      key={error.message}
+                      key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                      {error.message}
+                      {error?.message}
                     </div>
                   )
               )}
@@ -175,12 +174,12 @@ export const FormOne = () => {
               />
               {errorList.map(
                 (error) =>
-                  error.context.key === "phone" && (
+                  error?.context.key === "phone" && (
                     <div
-                      key={error.message}
+                      key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                      {error.message}
+                      {error?.message}
                     </div>
                   )
               )}
@@ -201,12 +200,12 @@ export const FormOne = () => {
               />
               {errorList.map(
                 (error) =>
-                  error.context.key === "email" && (
+                  error?.context.key === "email" && (
                     <div
-                      key={error.message}
+                      key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                      {error.message}
+                      {error?.message}
                     </div>
                   )
               )}
@@ -228,12 +227,12 @@ export const FormOne = () => {
               />
               {errorList.map(
                 (error) =>
-                  error.context.key === "password" && (
+                  error?.context.key === "password" && (
                     <div
-                      key={error.message}
+                      key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                      {error.message}
+                      {error?.message}
                     </div>
                   )
               )}
@@ -257,12 +256,12 @@ export const FormOne = () => {
               />
               {errorList.map(
                 (error) =>
-                  error.context.key === "confirmPassword" && (
+                  error?.context.key === "confirmPassword" && (
                     <div
-                      key={error.message}
+                      key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                      {error.message}
+                      {error?.message}
                     </div>
                   )
               )}
