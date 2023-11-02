@@ -277,5 +277,15 @@
   "required":"مطلوب",
   "warranty-duration-required":"فترة الضمان مطلوبة",
   "is":"",
-  "delete":"حذف"
+  "delete":"حذف",
+  "name-error-message": "الاسم لا يقل عن حرفين ",
+  "email-error-message":"البريد الالكتروني غير صحيح",
+  "message-error-message":"نص الرسالة لا يقل عن 15 حرف",
+  "compensation-request-number":"رقم الضمان",
+  "compensation-request-number-error-message":"رقم طلب الضمان يتكون من 10 ارقام على الاقل",
+  "password-error-message":"كلمه المرور تتكون من 8 رموز على الاقل",
+  "confirm-password-error-message": "كلمة مرور غير متطابقة",
+  "main-information":"البيانات الاساسية",
+  "legal-information":"البيانات القانونية ",
+  "confirmation":"مرحله التأكيد"
 }

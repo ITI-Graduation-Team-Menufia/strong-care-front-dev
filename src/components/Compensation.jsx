@@ -71,7 +71,7 @@ export const Compensation = () => {
   };
   return (
     <div
-      className="container-fluid shadow p-3 mt-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10"
+      className="container-fluid shadow p-3 mt-3 mb-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10"
       
     >
       <ToastContainer />
@@ -268,7 +268,9 @@ export const Compensation = () => {
                     key={error.message}
                     className="invalid-feedback text-danger"
                   >
-                    {error.message}
+                    {error.type === "any.required"
+                    ? `${t("please-enter")}${t("compensation-request-number")}`
+                    : t('compensation-request-number-error-message')}   
                   </div>
                 )
             )}

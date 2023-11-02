@@ -170,7 +170,9 @@ export const FormTwo = () => {
                     key={error?.message}
                     className="invalid-feedback text-danger"
                   >
-                    {error?.message}
+                    {/* {error?.message} */}
+                    {t("legal-name")} {t('is')} {t("required")}
+
                   </div>
                 )
             )}

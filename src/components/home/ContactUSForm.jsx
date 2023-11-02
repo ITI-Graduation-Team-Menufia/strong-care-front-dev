@@ -5,6 +5,7 @@ import { baseURL } from "../../APIs/baseURL";
 import Joi from "joi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { t } from "i18next";
 
 export default function ContactUSForm() {
   const { createResource, setBaseUrl, baseUrl, loading } = useApi();
@@ -81,7 +82,7 @@ export default function ContactUSForm() {
           </h2>
 
           <form>
-            <div className="name form-group">
+            <div className="name form-group mb-3">
               <label htmlFor="name" className="gray-text">
                 <Trans i18nKey="name"></Trans>
               </label>
@@ -90,18 +91,25 @@ export default function ContactUSForm() {
                 name="name"
                 value={contactData.name}
                 onChange={handleInputChange}
-                className="form-control w-75 font-medium border rounded-0 mb-3 mt-2 mx-auto border-slate-300 placeholder:opacity-60"
+                className='form-control w-75 font-medium border rounded-0 mb-0  mt-2 mx-auto  placeholder:opacity-60 '
                 placeholder=""
               />
               {errorList.map((error) =>
                 error.context.key === "name" ? (
-                  <div key={error.message} className="text-danger">
-                    {error.message}
+                  <div key={error.message} className="is-invalid text-danger mt-0">
+                    <small>
+
+                    {error.message === '"name" is not allowed to be empty'
+                    ? `${t("please-enter")}${t("name")}`
+                    : t('name-error-message')}
+                    </small>
                   </div>
                 ) : null
               )}
+              
             </div>
-            <div className="email form-group">
+            
+            <div className="email form-group  mb-3">
               <label htmlFor="email" className="gray-text">
                 <Trans i18nKey="email"></Trans>
               </label>
@@ -110,18 +118,23 @@ export default function ContactUSForm() {
                 name="email"
                 value={contactData.email}
                 onChange={handleInputChange}
-                className="form-control w-75 font-medium border rounded-0 mb-3 mt-2 mx-auto border-slate-300 placeholder:opacity-60"
+                className="form-control w-75 font-medium border rounded-0 mb-0 mt-2 mx-auto border-slate-300 placeholder:opacity-60"
                 placeholder=""
               />
               {errorList.map((error) =>
                 error.context.key === "email" ? (
                   <div key={error.message} className="text-danger">
-                    {error.message}
+                    <small>
+
+                    {error.message === '"email" is not allowed to be empty'
+                    ? `${t("please-enter")}${t("email")}`
+                    : t('email-error-message')}
+                    </small>
                   </div>
                 ) : null
               )}
             </div>
-            <div className="phone form-group">
+            <div className="phone form-group  mb-3">
               <label htmlFor="phone" className="gray-text">
                 <Trans i18nKey="phone"></Trans>
               </label>
@@ -130,23 +143,24 @@ export default function ContactUSForm() {
                 name="phone"
                 value={contactData.phone}
                 onChange={handleInputChange}
-                className="form-control w-75 font-medium border rounded-0 mb-3 mt-2 mx-auto border-slate-300 placeholder:opacity-60"
+                className="form-control w-75 font-medium border rounded-0 mb-0 mt-2 mx-auto border-slate-300 placeholder:opacity-60"
                 placeholder=""
               />
               {errorList.map((error) =>
                 error.context.key === "phone" ? (
                   <div key={error.message} className="text-danger">
-                    {error.message}
+                    <small>{t("please-enter")} {t("phone")}</small>
+
                   </div>
                 ) : null
               )}
             </div>
-            <div className="msg form-group">
+            <div className="msg form-group  mb-3">
               <label htmlFor="message" className="gray-text">
                 <Trans i18nKey="message"></Trans>
               </label>
               <textarea
-                className="form-control w-75 font-medium border rounded-0 mb-3 mt-2 mx-auto border-slate-300 placeholder:opacity-60"
+                className="form-control w-75 font-medium border rounded-0 mb-0 mt-2 mx-auto border-slate-300 placeholder:opacity-60"
                 type="text"
                 name="message"
                 value={contactData.message}
@@ -156,7 +170,12 @@ export default function ContactUSForm() {
               {errorList.map((error) =>
                 error.context.key === "message" ? (
                   <div key={error.message} className="text-danger">
-                    {error.message}
+                    <small>
+
+                    {error.message === '"message" is not allowed to be empty'
+                    ? `${t("please-enter")}${t("message")}`
+                    : t('message-error-message')}
+                    </small>
                   </div>
                 ) : null
               )}

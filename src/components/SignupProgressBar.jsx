@@ -1,8 +1,9 @@
 import React from 'react';
 import './SignupProgressBar.scss';
+import { t } from 'i18next';
 
 const SignupProgressBar = ({ step }) => {
-  const steps = ['البيانات الاساسية', 'البيانات القانونية', 'تأكيد التسجيل'];
+  const steps = [t('main-information'), t('legal-information'), t('confirmation')];
 
   return (
     <div className="container my-5">

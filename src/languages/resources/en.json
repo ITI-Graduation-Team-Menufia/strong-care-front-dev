@@ -7,7 +7,7 @@
   "company-tel-num": "Company Phone",
   "company-email": "Company Email",
   "password": "Password",
-  "confirm-password": "Confirm Password",
+  "confirm-password": "Confirm your Password",
   "area": " Area",
   "records-num": "Record Number",
   "legal-name": "Company Legal Name   ",
@@ -30,8 +30,8 @@
   "contact-with-us": "Contact With US ",
   "name": "Your Name",
   "email": "Your E-mail ",
-  "phone": "Phone Number ",
-  "message": "Message ",
+  "phone": "Your Phone Number ",
+  "message": "Your Message ",
   "send": "Send",
   "Our Partners": "Our Partners",
   "Compensation": "Compensation",
@@ -280,5 +280,23 @@
   "client-phone":"Client phone number",
   "required":"required",
   "warranty-duration-required":"Warranty duration required",
-  "delete": "delete"
+  "delete": "delete",
+
+
+  "please-enter": "Please enter ",
+  "name-error-message": "Name is not lower than 2 letters",
+  "email-error-message": "Not a  valid Email",
+  "message-error-message": "The Message content is not lower than 15 letters",
+  "compensation-request-number":"the compensation request number",
+  "compensation-request-number-error-message":"Compensation request number made of at least 10 numbers",
+  "password-error-message": "Password is made of at least 8 characters",
+  "confirm-password-error-message": "The password don't match",
+  "main-information":"Main Information ",
+  "legal-information":"Legal Information  ",
+  "confirmation":" Confirmation stage"
+
+
+
+
+
 }
