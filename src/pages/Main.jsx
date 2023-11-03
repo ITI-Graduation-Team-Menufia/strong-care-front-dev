@@ -13,10 +13,10 @@ import { WarrantyContract } from "../components/WarrantyContract";
 import { ConfirmationCode } from "../components/ConfirmationCode";
 import Warranty from "../components/Warranty";
 import { Compensation } from "../components/Compensation";
-import {CompanyProfile} from '../components/company/CompanyProfile';
+import { CompanyProfile } from "../components/company/CompanyProfile";
 import AboutUs from "../components/AboutUs";
 import NotFound from "../components/shared/NotFound";
-import {ProtectedRoute} from '../components/ProtectedRoute';
+import { ProtectedRoute } from "../components/ProtectedRoute";
 
 export function Main() {
   return (
@@ -29,7 +29,7 @@ export function Main() {
         <Route path="/signup2" element={<FormTwo />} />
         <Route path="/review" element={<Review />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/confirmpassword" element={<ConfirmPassword />} />
+        <Route path="/confirmpassword/:token" element={<ConfirmPassword />} />
         <Route path="/forgetpassword" element={<ForgotPassword />} />
         <Route path="/warrantycontract" element={<WarrantyContract />} />
         <Route path="/confirmationcode" element={<ConfirmationCode />} />
@@ -37,8 +37,7 @@ export function Main() {
         <Route
           path="/companyprofile"
           element={
-            <ProtectedRoute allowedRoles={["company"]}
-            >
+            <ProtectedRoute allowedRoles={["company"]}>
               <CompanyProfile />
             </ProtectedRoute>
           }

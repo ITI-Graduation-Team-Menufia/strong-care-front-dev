@@ -17,13 +17,14 @@ export function ApiProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [baseUrl, setBaseUrl] = useState(null);
   const [loggedUserData, setLoggedUserData] = useState(null);
-  
+
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
     }
   }, []);
+  useEffect(() => {}, [loggedUserData]);
 
   const createResource = async (newResource, baseURL = baseUrl) => {
     try {
@@ -70,7 +71,7 @@ export function ApiProvider({ children }) {
         updatedPart,
         { token }
       );
-      console.log(result);
+      return result;
     } catch (error) {
       console.error(error);
     }
@@ -121,7 +122,7 @@ export function ApiProvider({ children }) {
     setToken: setNewToken,
     setBaseUrl,
     loggedUserData,
-    setLoggedUserData
+    setLoggedUserData,
   };
 
   return (

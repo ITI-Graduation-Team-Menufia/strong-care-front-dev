@@ -2,7 +2,7 @@ import logo from "../../../assets/images/logo.png";
 import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import i18next from "i18next";
-import DEFAULT_IMAGE_PROFILE from '../../../assets/images/dashboard/noavatar.png';
+import DEFAULT_IMAGE_PROFILE from "../../../assets/images/dashboard/noavatar.png";
 
 export default function Navbar() {
   const { loggedUserData } = useApi();
@@ -43,13 +43,16 @@ export default function Navbar() {
                   className="rounded-circle "
                   style={{ width: "50px", height: "50px", margin: "0 10px" }}
                 />
-                {!loggedUserData && <p class="placeholder-wave">
-                  <span class="placeholder col-12"></span>
-                </p>}
-                {loggedUserData && 
-                <span>
-                  {loggedUserData?.firstName + " " + loggedUserData?.lastName}
-                </span>}
+                {!loggedUserData && (
+                  <p class="placeholder-wave">
+                    <span class="placeholder col-12"></span>
+                  </p>
+                )}
+                {loggedUserData && (
+                  <span>
+                    {loggedUserData?.firstName + " " + loggedUserData?.lastName}
+                  </span>
+                )}
               </span>
             </li>
             {/* Language Switcher */}
