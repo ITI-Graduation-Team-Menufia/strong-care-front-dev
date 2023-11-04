@@ -94,7 +94,7 @@ export const FormTwo = () => {
   return (
     <>
       <SignupProgressBar step={2} />
-      <div className="container-fluid shadow p-3 mt-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10">
+      <div className="container-fluid shadow p-3 my-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10">
         <h2 className="fs-2 text-center my-4 primary-text">
           <Trans i18nKey="info"></Trans>
         </h2>

@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {useEffect} from 'react';
 import './WarrantyContract.css'
 import vatLogo from '../assets/images/Vat-logo.svg';
 import qrCode from '../assets/images/qr-code.svg';
 import logo from '../assets/images/logo.png'
+import jwtDecode from 'jwt-decode';
+import { useApi } from '../contexts/apiContext';
+import { baseURL } from '../APIs/baseURL';
 
 export const WarrantyContract = () => {
+
+  let {getResource} = useApi();
+  let {contractData, setContractData} = useState({});
+
+  useEffect(()=>{
+    const fetch = async ()=>{
+      const decodedToken = jwtDecode(localStorage.getItem('token'));
+
+        if (decodedToken && decodedToken.id) {
+          const { id } = decodedToken;
+          let res  = await getResource(id, `${baseURL}insuranceRequest`);
+          if(res?.message === 'success')
+          setContractData(res?.data);
+        }
+    }
+
+    fetch();
+  },[])
+
   return (
     <div className='Container m-5 p-5 w-100'>
-
+      {console.log(contractData)}
       <button type="button" className="btn btn-primary w-25 mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
         اعرض عقد الضمان
       </button>
@@ -19,7 +42,6 @@ export const WarrantyContract = () => {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
 
               <div className='container h-25 w-75'>
                 <div className='background-img mt-5 @media print '></div>
@@ -80,7 +102,7 @@ export const WarrantyContract = () => {
 
                     </div>
                     <div className='col-4 d-flex flex-column align-items-center text-center mt-3'>
-                      <p className='text-dark fs-5 خحشؤهفغ-75'>ابو عبيدة</p>
+                      <p className='text-dark fs-5 خحشؤهفغ-75'>الاقصى</p>
 
                     </div>
                     <div className='col-4 d-flex flex-column align-items-end text-center mt-3'>

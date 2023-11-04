@@ -107,7 +107,7 @@ export const FormOne = () => {
     <>
       <SignupProgressBar step={1} />
       {!submitted && (
-        <div className="container-fluid shadow p-3 mt-3 mb-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10">
+        <div className="container-fluid shadow p-3 my-3 mb-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10">
           <h2 className="fs-2 text-center my-4 primary-text">
             <Trans i18nKey="info"></Trans>
           </h2>
@@ -141,11 +141,10 @@ export const FormOne = () => {
                 type="text"
                 id="validationServer01"
                 name="lastName"
-                className={`form-control ${
-                  errorList.some((error) => error.context.key === "lastName")
+                className={`form-control ${errorList.some((error) => error.context.key === "lastName")
                     ? "is-invalid"
                     : ""
-                }rounded-0 border-0 border-bottom border-black-50 mb-3`}
+                  }rounded-0 border-0 border-bottom border-black-50 mb-3`}
                 placeholder={t("company-name")}
                 onChange={handleInputChange}
               />
@@ -166,11 +165,10 @@ export const FormOne = () => {
               <input
                 type="text"
                 name="phone"
-                className={`form-control ${
-                  errorList.some((error) => error.context.key === "phone")
+                className={`form-control ${errorList.some((error) => error.context.key === "phone")
                     ? "is-invalid"
                     : ""
-                } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+                  } rounded-0 border-0 border-bottom border-black-50 mb-3`}
                 placeholder={t("company-tel-num")}
                 onChange={handleInputChange}
               />
@@ -181,7 +179,7 @@ export const FormOne = () => {
                       key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                     {t("please-enter")} {t("company-phone")}
+                      {t("please-enter")} {t("company-phone")}
 
                     </div>
                   )
@@ -194,11 +192,10 @@ export const FormOne = () => {
                 name="email"
                 id="validationServer03"
                 placeholder={t("company-email")}
-                className={`form-control ${
-                  errorList.some((error) => error.context.key === "email")
+                className={`form-control ${errorList.some((error) => error.context.key === "email")
                     ? "is-invalid"
                     : ""
-                } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+                  } rounded-0 border-0 border-bottom border-black-50 mb-3`}
                 onChange={handleInputChange}
               />
               {errorList.map(
@@ -210,8 +207,8 @@ export const FormOne = () => {
                     >
                       {/* {error?.message} */}
                       {error.type === "any.required"
-                    ? `${t("please-enter")}${t("company-email")}`
-                    : t('email-error-message')}
+                        ? `${t("please-enter")}${t("company-email")}`
+                        : t('email-error-message')}
                     </div>
                   )
               )}
@@ -224,11 +221,10 @@ export const FormOne = () => {
                 name="password"
                 id="validationServer04"
                 placeholder={t("password")}
-                className={`form-control ${
-                  errorList.some((error) => error.context.key === "password")
+                className={`form-control ${errorList.some((error) => error.context.key === "password")
                     ? "is-invalid"
                     : ""
-                } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+                  } rounded-0 border-0 border-bottom border-black-50 mb-3`}
                 onChange={handleInputChange}
               />
               {errorList.map(
@@ -240,8 +236,8 @@ export const FormOne = () => {
                     >
                       {/* {error?.message} */}
                       {error.type === "any.required"
-                    ? `${t("please-enter")}${t("password")}`
-                    : t('password-error-message')}
+                        ? `${t("please-enter")}${t("password")}`
+                        : t('password-error-message')}
 
                     </div>
                   )
@@ -255,13 +251,12 @@ export const FormOne = () => {
                 name="confirmPassword"
                 id="validationServer05"
                 placeholder={t("confirm-password")}
-                className={`form-control ${
-                  errorList.some(
-                    (error) => error.context.key === "confirmPassword"
-                  )
+                className={`form-control ${errorList.some(
+                  (error) => error.context.key === "confirmPassword"
+                )
                     ? "is-invalid"
                     : ""
-                } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+                  } rounded-0 border-0 border-bottom border-black-50 mb-3`}
                 onChange={handleInputChange}
               />
               {errorList.map(
@@ -273,32 +268,33 @@ export const FormOne = () => {
                     >
                       {/* {error?.message} */}
                       {error.type === "any.required"
-                    ? `${t("please")}${t("confirm-password")}`
-                    : t('confirm-password-error-message')}
+                        ? `${t("please")}${t("confirm-password")}`
+                        : t('confirm-password-error-message')}
                     </div>
                   )
               )}
               <div className="mt-5">
-              <Map
-                onCoordinatesChange={handleCoordinatesChange}
-                className="map"
-                style={{ height: "250px" }}
-                center={[24.774265, 46.738586]}
-                zoom={6}
-                onClick={handleMapClick}
-                chosenLocation={chosenLocation}
+                <label htmlFor=""><Trans i18nKey='location' /></label>
+                <Map
+                  onCoordinatesChange={handleCoordinatesChange}
+                  className="map"
+                  style={{ height: "250px" }}
+                  center={[24.774265, 46.738586]}
+                  zoom={6}
+                  onClick={handleMapClick}
+                  chosenLocation={chosenLocation}
                 />
-                </div>
+              </div>
             </div>
 
             {/* SUBMIT */}
             <div className="m-auto text-white">
-              
+
               <button className="btn btn-primary btn-lg" type="submit">
-              {loading ? (
+                {loading ? (
                   <FontAwesomeIcon icon={faSpinner} spin />
                 ) :
-                <Trans i18nKey="continue"></Trans>}
+                  <Trans i18nKey="continue"></Trans>}
               </button>
             </div>
           </form>

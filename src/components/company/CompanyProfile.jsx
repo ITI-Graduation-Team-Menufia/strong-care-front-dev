@@ -5,7 +5,7 @@ import { useApi } from "../../contexts/apiContext";
 import jwtDecode from "jwt-decode";
 import { baseURL } from "../../APIs/baseURL";
 import "./CompanyProfile.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Spinner } from "../shared/Spinner";
 
 export const CompanyProfile = () => {
@@ -29,7 +29,6 @@ export const CompanyProfile = () => {
         let decodedToken = jwtDecode(token);
         if (decodedToken && decodedToken.id) {
           const { id } = decodedToken;
-          console.log(id);
           let res = await getResource(id);
           setCompanyData(res?.data);
           setLoggedUserData(res?.data);
@@ -65,6 +64,8 @@ export const CompanyProfile = () => {
     setContractData(contractDataForm);
 
   };
+
+  let navigate = useNavigate();
 
   return (
     <div className="container my-5">
@@ -219,22 +220,24 @@ export const CompanyProfile = () => {
 
         {/* BUTTONS */}
         <div className="d-flex gap-4 flex-column flex-md-row justify-content-center mx-auto">
-          <Link
+          <button
             className=" btn btn-primary fs-6 "
             disabled={companyData?.state !== "approved"}
-            to="/warranty"
+            // to="/warranty"
+            onClick={()=> navigate('/warranty')}
           >
             <Trans i18nKey="create-warranty-contract"></Trans>
-          </Link>
+          </button>
           <button
             className=" btn btn-primary fs-6"
             disabled={companyData?.state !== "approved"}
+            onClick={()=> navigate('/warrantycontract')}
           >
             <Trans i18nKey="register-warranty-contracts"></Trans>
           </button>
         </div>
         {/* CONFIRMATION SECTION */}
-        {companyData?.state === "pending" && (
+        {/* {companyData?.state === "approved" && (
           <div className="mx-auto d-flex gap-4 flex-column py-4">
             <h5 className="text-success text-center ">
               <Trans i18nKey="reviewing"></Trans>
@@ -259,7 +262,7 @@ export const CompanyProfile = () => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
         {companyData?.state === "rejected" && (
           <div className="alert alert-danger text-center">
             بياناتك غير صحيحه.. تواصل معنا
