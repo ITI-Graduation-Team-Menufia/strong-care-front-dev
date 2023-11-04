@@ -31,7 +31,7 @@ export default function AdminDashboard() {
         className="mt-3 d-flex justify-content-between text-light"
         style={{ flex: "1" }}
       >
-        <div className="px-2 border-end border-light">
+        <div className="px-2 border-end border-start border-light">
           <Menu />
         </div>
         <div className="w-100 m-2 d-flex justify-content-center">

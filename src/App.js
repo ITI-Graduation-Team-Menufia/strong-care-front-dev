@@ -16,7 +16,6 @@ function App() {
     loggedUserData, getResource, setLoggedUserData } = useApi();
   const textDirection = i18n.languages[0] === 'ar' ? 'rtl' : 'ltr';
 
-
   useEffect(() => {
     let fetch = async () => {
       if (localStorage.getItem("token")) {

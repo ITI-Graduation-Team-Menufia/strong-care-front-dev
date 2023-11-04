@@ -130,7 +130,7 @@ export default function Navbar() {
                 </button>
               </li>
             )}
-
+{/* LANGUAGE */}
             <li className="nav-item d-flex">
               <select
                 value={localStorage.getItem("lng") || "ar"}
