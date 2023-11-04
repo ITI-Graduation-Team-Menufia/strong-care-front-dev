@@ -3,7 +3,7 @@ import { Footer, Navbar } from "../components/shared";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./home/Home";
 import { SignIn } from "../components/SignIn";
-import { Register } from "../components/home";
+import { ContactUSForm, Register } from "../components/home";
 import { FormOne } from "../components/FormOne";
 import { FormTwo } from "../components/FormTwo";
 import { Review } from "../components/Review";
@@ -34,6 +34,8 @@ export function Main() {
         <Route path="/warrantycontract" element={<WarrantyContract />} />
         <Route path="/confirmationcode" element={<ConfirmationCode />} />
         <Route path="/warranty" element={<Warranty />} />
+        <Route path="/contactus" element={<ContactUSForm />} />
+
         <Route
           path="/companyprofile"
           element={

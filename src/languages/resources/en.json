@@ -298,5 +298,10 @@
   "error-email-message": "Invalid Email",
   "success-send-rest-mail": "Email sent successfully. Please check your email.",
   "success-rest-password-message": "Password reset successfully",
-  "error-rest-password-message": "Password reset failed"
+  "error-rest-password-message": "Password reset failed",
+  "message-warranty": "This warranty is not available with us!",
+  "error-message-malfunctionImgs": "You must select between 1 and 8 images only.",
+  "error-message-descMalfunction": "Please provide a description of the issue in at least 30 characters.",
+  "compensation-request-message": "Your compensation request has been successfully submitted. We will review the request and get in touch with you as soon as possible.",
+  "compensation-request-message-error": "An issue occurred, please try again later."
 }

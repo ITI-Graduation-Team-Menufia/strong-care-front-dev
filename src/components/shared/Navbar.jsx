@@ -61,9 +61,11 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <span className="nav-link">
-                <Trans i18nKey="investors"></Trans>
-              </span>
+              <Link to="contactus">
+                <span className="nav-link">
+                  <Trans i18nKey="investors"></Trans>
+                </span>
+              </Link>
             </li>
             <li className="nav-item">
               <Link to="aboutus">
