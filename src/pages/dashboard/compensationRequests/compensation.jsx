@@ -4,8 +4,7 @@ import { Trans } from "react-i18next";
 import { useApi } from "../../../contexts/apiContext";
 import { baseURL } from "../../../APIs/baseURL";
 import { t } from "i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import getInTouch from '../../../assets/images/dashboard/getInTouche.jpg'
+import { formatDate } from "../../../utils/formatDate";
 
 export default function Compensation() {
 
@@ -30,7 +29,7 @@ export default function Compensation() {
     return (
         <div className="company w-100 mt-2 px-3">
             <h2 className="text-center">
-                <Trans i18nKey="warranty-request-details" />
+                <Trans i18nKey="compensation-request-details" />
             </h2>
             {!loading && (
                 <div className="w-75 mx-auto d-flex flex-column mt-5 gap-2">
@@ -55,7 +54,7 @@ export default function Compensation() {
                             disabled
                             type="text"
                             className="form-control"
-                            value={compensationData?.createdAt}
+                            value={formatDate(compensationData?.createdAt)}
                         />
                     </div>
                     {/* Compensation Identification */}

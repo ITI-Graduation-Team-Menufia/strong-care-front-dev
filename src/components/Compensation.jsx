@@ -34,7 +34,7 @@ export const Compensation = () => {
       .min(30)
       .required()
       .description("description malfunction must be more than 30 characters."),
-    malfunctionImgs: Joi.required(),
+    malfunctionImgs: Joi.object().required(),
   });
 
   const validateForm = (_validationSchema, data) => {

@@ -5,9 +5,15 @@ import { baseURL } from "../APIs/baseURL";
 import { useApi } from "../contexts/apiContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function Warranty() {
-  const { createResource, setBaseUrl, loggedUserData, setToken } = useApi();
+
+  const navigate = useNavigate();
+
+  const { createResource, setBaseUrl, loggedUserData, loading } = useApi();
   const { t } = useTranslation();
   const [values, setValues] = useState({});
   const [errorList, setErrorList] = useState([]);
@@ -54,7 +60,7 @@ export default function Warranty() {
       })
       .description("Client email"),
   });
-  const notifySuccess = () => toast("تم إنشاء طلب الضمان بنجاح! تهانينا!");
+  const notifySuccess = (msg) => toast(msg);
 
   const validateForm = () => {
     const { error } = validationSchema.validate(values, { abortEarly: false });
@@ -72,7 +78,12 @@ export default function Warranty() {
       ...values,
       company: loggedUserData?._id,
     });
-    if (res?.message === "success") notifySuccess();
+    if (res?.message === "success") {
+      notifySuccess(<Trans i18nKey='warranty-request-success' />);
+      navigate('/companyprofile')
+    }
+    else if (res?.message !== undefined) notifySuccess(<Trans i18nKey='warranty-request-exists' />);
+    else notifySuccess(<Trans i18nKey='compensation-request-message-error' />);
   };
 
   const handleInputChange = (e) => {
@@ -82,13 +93,13 @@ export default function Warranty() {
 
   return (
     <div
-      className="container-fluid shadow p-3 mt-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10"
-    
+      className="container-fluid shadow p-3 my-5 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10"
+
     >
       <ToastContainer />
 
       <h2 className="fs-2 text-center my-4 primary-text">
-        <Trans i18nKey="compensation"></Trans>
+        <Trans i18nKey="create-warranty-contract"></Trans>
       </h2>
       <form className="d-flex flex-column" onSubmit={submitForm}>
         {/* client Name */}
@@ -96,11 +107,10 @@ export default function Warranty() {
           <input
             type="text"
             name="clientName"
-            className={`form-control ${
-              errorList.some((error) => error.context.key === "clientName")
+            className={`form-control ${errorList.some((error) => error.context.key === "clientName")
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             id="validationServer01"
             placeholder={t("client-name")}
             onChange={handleInputChange}
@@ -124,11 +134,10 @@ export default function Warranty() {
           <input
             type="text"
             name="deviceBrand"
-            className={`form-control ${
-              errorList.some((error) => error.context.key === "deviceBrand")
+            className={`form-control ${errorList.some((error) => error.context.key === "deviceBrand")
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             id="validationServer01"
             placeholder={t("device-company")}
             onChange={handleInputChange}
@@ -154,11 +163,10 @@ export default function Warranty() {
           <input
             type="text"
             name="deviceType"
-            className={`form-control ${
-              errorList.some((error) => error.context.key === "deviceType")
+            className={`form-control ${errorList.some((error) => error.context.key === "deviceType")
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             id="validationServer01"
             placeholder={t("device-type")}
             onChange={handleInputChange}
@@ -170,10 +178,10 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                 {error.type === "any.required"
+                  {error.type === "any.required"
                     ? t("device-type-is-required")
                     : t('device-type-error-message')}
-                  
+
                 </div>
               )
           )}
@@ -183,11 +191,10 @@ export default function Warranty() {
           <input
             type="text"
             name="deviceColor"
-            className={`form-control ${
-              errorList.some((error) => error.context.key === "deviceColor")
+            className={`form-control ${errorList.some((error) => error.context.key === "deviceColor")
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             placeholder={t("device-color")}
             id="validationServer01"
             onChange={handleInputChange}
@@ -199,7 +206,7 @@ export default function Warranty() {
                   key={error.message}
                   className="invalid-feedback text-danger"
                 >
-                 {error.type === "any.required"
+                  {error.type === "any.required"
                     ? t("device-color-is-required")
                     : t('device-color-error-message')}
                 </div>
@@ -212,11 +219,10 @@ export default function Warranty() {
           <input
             type="text"
             name="serialNo"
-            className={`form-control ${
-              errorList.some((error) => error.context.key === "serialNo")
+            className={`form-control ${errorList.some((error) => error.context.key === "serialNo")
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             placeholder={t("device-serial-number")}
             onChange={handleInputChange}
           />
@@ -239,11 +245,10 @@ export default function Warranty() {
           <input
             type="text"
             name="clientPhone"
-            className={`form-control ${
-              errorList.some((error) => error.context.key === "clientPhone")
+            className={`form-control ${errorList.some((error) => error.context.key === "clientPhone")
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             placeholder={t("client-phone")}
             onChange={handleInputChange}
           />
@@ -253,7 +258,7 @@ export default function Warranty() {
                 <div
                   key={error.message}
                   className="invalid-feedback text-danger"
-                >                  
+                >
                   {t("client-phone")} {t('is')} {t("required")}
 
                 </div>
@@ -265,11 +270,10 @@ export default function Warranty() {
           <input
             type="text"
             name="clientEmail"
-            className={`form-control ${
-              errorList.some((error) => error.context.key === "clientEmail")
+            className={`form-control ${errorList.some((error) => error.context.key === "clientEmail")
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             placeholder={t("client-email")}
             onChange={handleInputChange}
           />
@@ -290,11 +294,10 @@ export default function Warranty() {
           <input
             type="text"
             name="deviceModel"
-            className={`form-control ${
-              errorList.some((error) => error.context.key === "deviceModel")
+            className={`form-control ${errorList.some((error) => error.context.key === "deviceModel")
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             placeholder={t("device-model")}
             onChange={handleInputChange}
           />
@@ -307,7 +310,7 @@ export default function Warranty() {
                 >
                   {error.type === "any.required"
                     ? t("device-model-is-required")
-                    : t('device-model-error-message')}    
+                    : t('device-model-error-message')}
                 </div>
               )
           )}
@@ -316,13 +319,12 @@ export default function Warranty() {
         <div className=" mb-4 m-auto w-75">
           <select
             onChange={handleInputChange}
-            className={`form-select ${
-              errorList.some(
-                (error) => error.context.key === "insuranceDuration"
-              )
+            className={`form-select ${errorList.some(
+              (error) => error.context.key === "insuranceDuration"
+            )
                 ? "is-invalid"
                 : ""
-            } rounded-0 border-0 border-bottom border-black-50 mb-3`}
+              } rounded-0 border-0 border-bottom border-black-50 mb-3`}
             name="insuranceDuration"
           >
             <option selected readOnly>
@@ -350,6 +352,7 @@ export default function Warranty() {
           {/* <div className="invalid text-danger"><Trans i18nKey="please-enter"></Trans><Trans i18nKey="purchase-date"></Trans></div> */}
         </div>
         <div className=" mb-4 m-auto w-75">
+          <label className="mb-2"><Trans i18nKey="agent-identification-number" /></label>
           <input
             readOnly
             disabled
@@ -363,6 +366,7 @@ export default function Warranty() {
         </div>
 
         <div className=" mb-4 m-auto w-75">
+          <label className="mb-2"><Trans i18nKey="shop-name" /></label>
           <input
             readOnly
             disabled
@@ -377,7 +381,10 @@ export default function Warranty() {
 
         <div className="m-auto text-white">
           <button className="btn btn-primary btn-lg" type="submit">
-            <Trans i18nKey="create"></Trans>
+            {loading ? (
+              <FontAwesomeIcon icon={faSpinner} spin />
+            ) :
+              <Trans i18nKey="create"></Trans>}
           </button>
         </div>
       </form>

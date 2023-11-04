@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useApi } from "../../../contexts/apiContext";
 import { baseURL } from "../../../APIs/baseURL";
 import { Spinner } from "../../../components/shared/Spinner";
+import { formatDate } from "../../../utils/formatDate";
 
 // COLUMNS FOR DATA TABLE
 const columns = [
@@ -19,7 +20,7 @@ const columns = [
     field: "descMalfunction",
     type: "string",
     headerName: <Trans i18nKey='malfunction-description'/>,
-    width: 200,
+    width: 300,
     sortable: false,
   },
   // {
@@ -96,7 +97,7 @@ export default function Compensations() {
       {!loading && (compensationData?.length > 0 ? (
         <DataTable
           columns={columns}
-          rows={compensationData}
+          rows={compensationData.map(compensation => {compensation.createdAt = formatDate(compensation.createdAt); return compensation})}
           isLoading={loading}
           pageToRedirectTo="compensations"
 
