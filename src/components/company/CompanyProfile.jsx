@@ -83,7 +83,7 @@ export const CompanyProfile = () => {
                 alt="Company"
                 style={{ width: "200px", height: "200px" }}
               />
-              <i
+              {/* <i
                 className="bi bi-pencil position-absolute bg-light opacity-100 fs-3 rounded-5 "
                 style={{
                   top: "83%",
@@ -91,7 +91,7 @@ export const CompanyProfile = () => {
                   cursor: "pointer",
                   transform: "translate(-50%, -50%)",
                 }}
-              ></i>
+              ></i> */}
             </div>
           </div>
           {/* FORM */}

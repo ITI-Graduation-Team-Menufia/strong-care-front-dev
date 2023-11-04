@@ -204,9 +204,9 @@ const AboutUs = () => {
     };
   }, []);
   return (
-    <div className="container">
+    <div className="container mt-sm-5">
       <div className="d-flex flex-lg-row flex-md-row flex-sm-column flex-column">
-        <div className="about-us col-md-6 col-sm-12 col-12 align-center me-4 ms-2">
+        <div className="about-us col-md-6 col-sm-12 col-12 align-center me-sm-4 ms-sm-2">
           <h1 className="my-4">
             {" "}
             <Trans i18nKey="about-company"></Trans>
@@ -255,7 +255,7 @@ const AboutUs = () => {
         </p>
       </div>
       <div className=" localization d-flex flex-lg-row flex-md-row flex-sm-column flex-column mt-5 ">
-        <div className="about-us col-md-6 col-sm-12 col-12 align-center me-4 ms-2 m-auto">
+        <div className="about-us col-md-6 col-sm-12 col-12 align-center me-sm-4 ms-sm-2 m-auto">
           <h1 className="my-4">
             {" "}
             <Trans i18nKey="localization-jobs"></Trans>
@@ -287,7 +287,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div>
-        <div className="d-flex flex-lg-row flex-md-row flex-sm-column flex-column mt-5 mb-3 col-lg-9 col-md-12 m-auto">
+        <div className="d-flex flex-lg-row flex-md-row flex-sm-column gap-2 flex-column mt-5 mb-3 col-lg-9 col-md-12 m-auto">
           {isSmallScreen ? (
             <select
               className="form-select fs-5 fs-sm-6 border py-3 px-4 w-75"

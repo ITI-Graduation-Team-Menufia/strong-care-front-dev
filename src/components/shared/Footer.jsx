@@ -67,33 +67,32 @@ export default function Footer() {
             </MDBRow>
           </MDBContainer>
         </section>
-        <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-          <div className="mx-auto">
-            <span className="me-4 text-reset">
+        <section className="d-flex flex-sm-row flex-column justify-content-sm-evenly p-4 border-bottom">
+            <span className="text-reset d-flex gap-1 align-items-center justify-content-center">
               <MDBIcon fab icon="facebook-f" />
               {t("facebook")}
             </span>
-            <span className="me-4 text-reset">
+            <span className="text-reset d-flex gap-1 align-items-center justify-content-center">
               <MDBIcon fab icon="twitter" />
               {t("twitter")}
             </span>
-            <span className="me-4 text-reset">
+            <span className="text-reset d-flex gap-1 align-items-center justify-content-center">
               <MDBIcon fab icon="google" />
               {t("google")}
             </span>
-            <span className="me-4 text-reset">
+            <span className="text-reset d-flex gap-1 align-items-center justify-content-center">
               <MDBIcon fab icon="instagram" />
               {t("instagram")}
             </span>
-            <span className="me-4 text-reset">
+            <span className="text-reset d-flex gap-1 align-items-center justify-content-center">
               <MDBIcon fab icon="linkedin" />
               {t("linkedin")}
             </span>
-            <span className="me-4 text-reset">
+            <span className="text-reset d-flex gap-1 align-items-center justify-content-center">
               <MDBIcon fab icon="github" />
               {t("github")}
             </span>
-          </div>
+          
         </section>
         <div
           className="text-center p-4"
