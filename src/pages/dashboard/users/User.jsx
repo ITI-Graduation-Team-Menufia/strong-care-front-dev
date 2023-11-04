@@ -332,6 +332,7 @@ export default function User() {
            onChange={handleInputChange}
          />
        </div> */}
+            <label><Trans i18nKey='location' /></label>
             <Map
               onCoordinatesChange={handleCoordinatesChange}
               className="map"

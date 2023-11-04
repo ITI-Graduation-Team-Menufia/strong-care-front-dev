@@ -6,6 +6,8 @@ import Joi from "joi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { t } from "i18next";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ContactUSForm() {
   const { createResource, setBaseUrl, baseUrl, loading } = useApi();
@@ -181,7 +183,10 @@ export default function ContactUSForm() {
               )}
             </div>
             <button onClick={sendMessage} className="btn btn-primary px-5">
-              <Trans i18nKey="send"></Trans>
+            {loading ? (
+              <FontAwesomeIcon icon={faSpinner} spin />
+            ) :
+              <Trans i18nKey="send"></Trans>}
             </button>
           </form>
         </div>
