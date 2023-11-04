@@ -63,7 +63,6 @@ export const CompanyProfile = () => {
     contractDataForm.append("contractHardCopyFile", selectedContractImage);
     setContractData(contractDataForm);
 
-    // setBaseUrl(`${baseURL}auth/loggeduserdata`);
   };
 
   return (

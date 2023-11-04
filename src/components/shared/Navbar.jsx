@@ -96,9 +96,9 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li className="w-100">
-                    <Link to="register">
-                      <span className="dropdown-item text-center">
-                        <i className="bi bi-person-fill p-1 lead"></i>
+                    <Link to="">
+                      <span className="dropdown-item text-center text-secondary">
+                        <i className="bi bi-person-fill p-1 lead text-secondary"></i>
                         <Trans i18nKey="signUpAsIndividual"></Trans>
                       </span>
                     </Link>

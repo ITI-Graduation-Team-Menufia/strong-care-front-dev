@@ -169,7 +169,7 @@ export default function Home() {
           {renderCard(
             faUser,
             "users-number",
-            statistics? statistics.individual :
+            statistics? statistics.individual || 0 :
             <div class="spinner-grow text-secondary" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>,

@@ -299,5 +299,6 @@
   "error-message-malfunctionImgs": "يجب اختيار من 1 إلى 8 صور فقط.",
   "error-message-descMalfunction": "الرجاء تقديم وصف للمشكلة يحتوي على ما لا يقل عن 30 حرفًا.",
   "compensation-request-message": "تم إرسال طلب التعويض بنجاح. سنقوم بمراجعة الطلب والتواصل معك في أقرب وقت ممكن.",
-  "compensation-request-message-error": "حدثت مشكلة، يرجى المحاولة في وقت لاحق."
+  "compensation-request-message-error": "حدثت مشكلة، يرجى المحاولة في وقت لاحق.",
+  "confirm-your-email":"تم إرسال رسالة تأكيد .. يرجى التوجه إلى بريدكم الإلكتروني"
 }

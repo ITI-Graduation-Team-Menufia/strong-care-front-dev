@@ -7,10 +7,12 @@ import defaultProfilePic from "../assets/images/dashboard/profile-pic.jpg";
 import { userSchema } from "../models/user.validation";
 import SignupProgressBar from "./SignupProgressBar";
 import Map from "./Map";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 // import { useNavigate } from "react-router-dom";
 
 export const FormOne = () => {
-  const { createResource, setBaseUrl, setToken } = useApi();
+  const { createResource, setBaseUrl, setToken, loading } = useApi();
   const { t } = useTranslation();
 
   const [values, setValues] = useState({});
@@ -291,8 +293,12 @@ export const FormOne = () => {
 
             {/* SUBMIT */}
             <div className="m-auto text-white">
+              
               <button className="btn btn-primary btn-lg" type="submit">
-                <Trans i18nKey="continue"></Trans>
+              {loading ? (
+                  <FontAwesomeIcon icon={faSpinner} spin />
+                ) :
+                <Trans i18nKey="continue"></Trans>}
               </button>
             </div>
           </form>
@@ -300,8 +306,8 @@ export const FormOne = () => {
       )}
       {submitted && (
         <div>
-          <p className="alert alert-warning display-6">
-            Confirm Your Email and return to this page
+          <p className="alert alert-warning display-6 text-center my-3">
+            <Trans i18nKey="confirm-your-email" />
           </p>
         </div>
       )}

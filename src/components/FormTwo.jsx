@@ -6,9 +6,11 @@ import { useApi } from "../contexts/apiContext";
 import { baseURL } from "../APIs/baseURL";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const FormTwo = () => {
-  const { createResource, setBaseUrl} =
+  const { createResource, setBaseUrl, loading} =
     useApi();
 
   let [id, setId] = useState(null);
@@ -67,7 +69,7 @@ export const FormTwo = () => {
     companyDataForm.append("noCommercialRegister", values?.noCommercialRegister);
     companyDataForm.append("commission", 20);
     companyDataForm.append("legalName", values?.legalName);
-    companyDataForm.append("legalLocation", "companyData.legalName");
+    companyDataForm.append("legalLocation", values?.legalLocation);
     companyDataForm.append(
       "commercialRegisterImg",
       selectedCommercialRegisterImage
@@ -84,7 +86,8 @@ export const FormTwo = () => {
       //   setLoggedUserData(response?.data);
       // }
 
-      navigate("/confirmationcode");
+      // navigate("/confirmationcode");
+      navigate("/review");
     }
   };
 
@@ -239,7 +242,10 @@ export const FormTwo = () => {
           {/* BUTTON */}
           <div className="m-auto text-white">
             <button className="btn btn-primary btn-lg" type="submit">
-              <Trans i18nKey="continue"></Trans>
+            {loading ? (
+                  <FontAwesomeIcon icon={faSpinner} spin />
+                ) :
+              <Trans i18nKey="continue"></Trans>}
             </button>
           </div>
         </form>
