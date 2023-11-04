@@ -76,11 +76,9 @@ useEffect(()=>{
             </li>)}
             {/* LOGOUT */}
             {loggedUserData && (
-              <li className="nav-item">
+              <li className="nav-item d-flex align-items-center">
                 <button onClick={logout} className="nav-link">
-                  <span>
                     <Trans i18nKey="logout"> </Trans>
-                  </span>
                 </button>
               </li>
             )}
