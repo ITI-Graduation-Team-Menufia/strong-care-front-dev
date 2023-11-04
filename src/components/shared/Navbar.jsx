@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useApi } from "../../contexts/apiContext";
 import { navigateTo } from "../../utils/navigateTo";
 import i18next from "i18next";
-import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const { loggedUserData, setLoggedUserData, setToken } = useApi();
@@ -27,7 +26,7 @@ export default function Navbar() {
       <div className="container fw-bold">
         <span className="navbar-brand">
           <Link to="/">
-            <img src={logo} alt="Bootstrap" width="100" />
+            <img src={logo} alt="Strongcare" width="100" />
           </Link>
         </span>
         <button
@@ -45,7 +44,7 @@ export default function Navbar() {
           className="collapse navbar-collapse justify-content-end"
           id="navbarNavDropdown"
         >
-          <ul className="navbar-nav ">
+          <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/">
                 <span className="nav-link" aria-current="page">

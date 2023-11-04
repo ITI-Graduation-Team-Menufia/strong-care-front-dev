@@ -455,21 +455,24 @@ export function PendingRegisteration() {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
               >
-                Close
+                <Trans i18nKey='close' />
               </button>
               <button
                 onClick={sendEmail}
                 type="button"
                 className="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
               >
-                Send
+                <Trans i18nKey='send' />
               </button>
             </div>
           </div>
         </div>
       </div>
-
       {/* END OF APPROVAL MODAL */}
     </div>
   );

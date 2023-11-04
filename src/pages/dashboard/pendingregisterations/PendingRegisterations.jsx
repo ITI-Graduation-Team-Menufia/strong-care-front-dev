@@ -152,7 +152,7 @@ export default function PendingRegisterations() {
         </h1>
       </div>
 
-      {loading && <Spinner />}
+      {loading && <Spinner/>}
       {!loading && (companiesRows?.length > 0 ? (
         <DataTable
           columns={columns}

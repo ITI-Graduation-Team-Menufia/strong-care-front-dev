@@ -304,5 +304,6 @@
   "error-message-descMalfunction": "Please provide a description of the issue in at least 30 characters.",
   "compensation-request-message": "Your compensation request has been successfully submitted. We will review the request and get in touch with you as soon as possible.",
   "compensation-request-message-error": "An issue occurred, please try again later.",
-  "confirm-your-email":"Confirm Your Email and return to this page"
+  "confirm-your-email":"Confirm Your Email and return to this page",
+  "close":"Close"
 }

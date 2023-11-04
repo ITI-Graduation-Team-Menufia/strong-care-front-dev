@@ -6,6 +6,7 @@ import jwtDecode from "jwt-decode";
 import { baseURL } from "../../APIs/baseURL";
 import "./CompanyProfile.css";
 import { Link } from "react-router-dom";
+import { Spinner } from "../shared/Spinner";
 
 export const CompanyProfile = () => {
   let [validId, setValidId] = useState(false);
@@ -13,7 +14,7 @@ export const CompanyProfile = () => {
   let [contractFlag, setContractFlag] = useState(false);
   const [selectedContractImage, setSelectedContractImage] = useState(null);
 
-  const { createResource, getResource, setBaseUrl, setLoggedUserData } =
+  const { createResource, getResource, setBaseUrl, setLoggedUserData, loading } =
     useApi();
 
   useEffect(() => {
@@ -67,7 +68,8 @@ export const CompanyProfile = () => {
 
   return (
     <div className="container my-5">
-      <div className="d-flex flex-column gap-4">
+      {loading && <Spinner color={'black'} />}
+      {!loading && (<div className="d-flex flex-column gap-4">
         {/* INFO */}
         <div className="d-flex flex-md-row flex-column gap-3 align-items-center justify-content-evenly">
           {/* MAIN INFO */}
@@ -263,7 +265,7 @@ export const CompanyProfile = () => {
             بياناتك غير صحيحه.. تواصل معنا
           </div>
         )}
-      </div>
+      </div>)}    
     </div>
   );
 };
