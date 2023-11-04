@@ -68,7 +68,7 @@ export const CompanyProfile = () => {
 
   return (
     <div className="container my-5">
-      {loading && <Spinner color={'black'} />}
+      {loading && <div className="text-center"><Spinner/></div>}
       {!loading && (<div className="d-flex flex-column gap-4">
         {/* INFO */}
         <div className="d-flex flex-md-row flex-column gap-3 align-items-center justify-content-evenly">
