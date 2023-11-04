@@ -6,6 +6,12 @@ import { baseURL } from "../../../APIs/baseURL";
 import { t } from "i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import getInTouch from "../../../assets/images/dashboard/getInTouche.jpg";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import { Spinner } from "../../../components/shared/Spinner";
+
+const notify = (msg) => toast(msg);
 
 export function Contract() {
   const { getResource, loading, editPartOfResource } = useApi();
@@ -39,7 +45,7 @@ export function Contract() {
       emailDataTemp = {
         state: "approved",
         to: contractData?.clientEmail,
-        subject: "تم قبول شركتكم",
+        subject: "تم قبول عقد الضمان",
         message: emailData?.message,
         fileLink: emailData?.fileLink,
       };
@@ -47,7 +53,7 @@ export function Contract() {
       emailDataTemp = {
         state: "rejected",
         to: contractData?.clientEmail,
-        subject: "تم رفض شركتكم",
+        subject: "تم رفض عقد الضمان",
         message: emailData?.message,
         fileLink: emailData?.fileLink,
       };
@@ -57,14 +63,24 @@ export function Contract() {
       emailDataTemp,
       `${baseURL}insuranceRequest`
     );
+    if (res?.message === "success") {
+      if(res.data.state === 'approved')
+      notify(<Trans i18nKey="warranty-request-approved"/>);
+      else
+      notify(<Trans i18nKey="warranty-request-rejected"></Trans>);
+    } else {
+      notify(<Trans i18nKey="compensation-request-message-error"></Trans>);
+    }
   };
 
   return (
     <div className="company w-100 mt-2 px-3">
+      <ToastContainer/>
       <h2 className="text-center">
         <Trans i18nKey="warranty-request-details" />
       </h2>
-      {!loading && (
+      {loading && <div className="text-center"><Spinner/></div>}
+      {!loading && 
         <div className="w-75 mx-auto d-flex flex-column mt-5 gap-2">
           {/* Client Name */}
           <div className="form-group">
@@ -219,7 +235,7 @@ export function Contract() {
                 setApprovalState(true);
 
                 setEmailData({
-                  message: "تم قبول طلب التعويض خاصتكم",
+                  message: "تم قبول طلب إنشاء عقد الضمان خاصتكم",
                   fileLink: "https://www.africau.edu/images/default/sample.pdf",
                 });
               }}
@@ -233,7 +249,7 @@ export function Contract() {
               onClick={() => {
                 setApprovalState(false);
                 setEmailData({
-                  message: "تم  رفض التعويض خاصتكم",
+                  message: "تم  رفض طلب إنشاء عقد الضمان خاصتكم",
                 });
               }}
             >
@@ -241,7 +257,7 @@ export function Contract() {
             </button>
           </div>
         </div>
-      )}
+      }
       {/* APPROVAL MODAL */}
       <div
         class="modal modal-xl"
@@ -344,8 +360,12 @@ export function Contract() {
                     onClick={() => {
                       sendApprovalState(approvalState);
                     }}
+                    data-bs-dismiss="modal"
                   >
-                    {t("send")}
+                    {loading ? (
+                      <FontAwesomeIcon icon={faSpinner} spin />
+                    ) :
+                      t("send")}
                   </button>
                 </div>
               </div>

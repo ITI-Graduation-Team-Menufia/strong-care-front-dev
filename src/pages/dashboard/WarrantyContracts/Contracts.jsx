@@ -5,6 +5,7 @@ import { useApi } from "../../../contexts/apiContext";
 import { useEffect, useState } from "react";
 import { baseURL } from "../../../APIs/baseURL";
 import { Spinner } from "../../../components/shared/Spinner";
+import { formatDate } from "../../../utils/formatDate";
 
 // COLUMNS FOR DATA TABLE
 const columns = [
@@ -85,6 +86,13 @@ const columns = [
     width: 150,
     sortable: false,
   },
+  {
+    field: "state",
+    type: "string",
+    headerName: <Trans i18nKey='state' />,
+    width: 150,
+    sortable: false,
+  },
 ];
 
 const actionsColumn = {
@@ -139,7 +147,7 @@ export default function Contracts() {
       {!loading && (insuranceRequestData?.length > 0 ? (
         <DataTable
           columns={columns}
-          rows={insuranceRequestData}
+          rows={insuranceRequestData.map(request => {request.createdAt = formatDate(request.createdAt); return request})}
           isLoading={loading}
           pageToRedirectTo="contracts"
 

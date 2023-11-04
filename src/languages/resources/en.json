@@ -308,5 +308,7 @@
   "close":"Close",
   "warranty-request-success":"Warranty request created successfully",
   "warranty-request-exists":"Warranty Request already exists",
-  "compensation-request-details":"Compensation Request Details"
+  "compensation-request-details":"Compensation Request Details",
+  "warranty-request-approved":"Warranty request approved, and email sent",
+  "warranty-request-rejected":"Warranty request rejected, and email sent"
 }

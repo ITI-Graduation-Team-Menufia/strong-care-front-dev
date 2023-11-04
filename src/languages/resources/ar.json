@@ -304,5 +304,8 @@
   "close":"إغلاق",
   "warranty-request-success":"تم إنشاء طلب الضمان بنجاح! تهانينا!",
   "warranty-request-exists":"طلب الضمان موجود ب الفعل",
-  "compensation-request-details":"تفاصيل طلب التعويض"
+  "compensation-request-details":"تفاصيل طلب التعويض",
+  "warranty-request-approved":"تم قبول طلب عقد الضمان وارسال بريد للشركة",
+  "warranty-request-rejected":"تم رفض طلب عقد الضمان وارسال بريد للشركة"
+
 }
