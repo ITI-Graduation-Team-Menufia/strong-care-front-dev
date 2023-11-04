@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Trans } from 'react-i18next';
 
 export function RegisterationProgressBar(props) {
     
@@ -34,11 +35,11 @@ export function RegisterationProgressBar(props) {
         // </div>
         <div className="container w-75 m-5 mx-auto">
         <div className='d-flex w-75 mx-auto justify-content-around'>
-            <div className='border border-2 w-25 h- rounded-circle p-3' >البيانات الاساسية</div>
+            <div className='border border-2 w-25 h- rounded-circle p-4' ><Trans i18nKey="main-information"></Trans></div>
             <hr className='text-primary' />
-            <div className='border border-2 w-25 h- rounded-circle p-3' >البيانات القانونية </div>
+            <div className='border border-2 w-25 h- rounded-circle p-4' ><Trans i18nKey="legal-information"></Trans></div>
             <hr className='text-primary' />
-            <div className='border border-2 w-25 h- rounded-circle p-3' >مرحله التأكيد</div>
+            <div className='border border-2 w-25 h- rounded-circle p-4' > <Trans i18nKey="confirmation"></Trans></div>
         </div>
         </div>
     )

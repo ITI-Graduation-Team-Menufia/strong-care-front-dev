@@ -105,7 +105,7 @@ export const FormOne = () => {
     <>
       <SignupProgressBar step={1} />
       {!submitted && (
-        <div className="container-fluid shadow p-3 mt-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10">
+        <div className="container-fluid shadow p-3 mt-3 mb-3 col-12 col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-10">
           <h2 className="fs-2 text-center my-4 primary-text">
             <Trans i18nKey="info"></Trans>
           </h2>
@@ -179,7 +179,8 @@ export const FormOne = () => {
                       key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                      {error?.message}
+                     {t("please-enter")} {t("company-phone")}
+
                     </div>
                   )
               )}
@@ -205,7 +206,10 @@ export const FormOne = () => {
                       key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                      {error?.message}
+                      {/* {error?.message} */}
+                      {error.type === "any.required"
+                    ? `${t("please-enter")}${t("company-email")}`
+                    : t('email-error-message')}
                     </div>
                   )
               )}
@@ -232,7 +236,11 @@ export const FormOne = () => {
                       key={error?.message}
                       className="invalid-feedback text-danger"
                     >
-                      {error?.message}
+                      {/* {error?.message} */}
+                      {error.type === "any.required"
+                    ? `${t("please-enter")}${t("password")}`
+                    : t('password-error-message')}
+
                     </div>
                   )
               )}
@@ -259,12 +267,16 @@ export const FormOne = () => {
                   error?.context.key === "confirmPassword" && (
                     <div
                       key={error?.message}
-                      className="invalid-feedback text-danger"
+                      className="invalid-feedback text-danger "
                     >
-                      {error?.message}
+                      {/* {error?.message} */}
+                      {error.type === "any.required"
+                    ? `${t("please")}${t("confirm-password")}`
+                    : t('confirm-password-error-message')}
                     </div>
                   )
               )}
+              <div className="mt-5">
               <Map
                 onCoordinatesChange={handleCoordinatesChange}
                 className="map"
@@ -273,7 +285,8 @@ export const FormOne = () => {
                 zoom={6}
                 onClick={handleMapClick}
                 chosenLocation={chosenLocation}
-              />
+                />
+                </div>
             </div>
 
             {/* SUBMIT */}

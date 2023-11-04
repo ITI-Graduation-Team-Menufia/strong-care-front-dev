@@ -29,7 +29,7 @@ const AboutUs = () => {
     ],
     [
       <p className="fs-5 fw-semibold text-info">
-        <Trans i18nKey="commitments "></Trans>
+        <Trans i18nKey="commitments"></Trans>
       </p>,
       <Trans i18nKey="commitments-description"></Trans>,
     ],

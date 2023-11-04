@@ -5,10 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useApi } from "../../contexts/apiContext";
 import { navigateTo } from "../../utils/navigateTo";
 import i18next from "i18next";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const { loggedUserData, setToken } = useApi();
-
+  const { loggedUserData, setLoggedUserData, setToken } = useApi();
   let navigate = useNavigate();
 
   // LOGOUT
@@ -16,6 +16,8 @@ export default function Navbar() {
     localStorage.removeItem("token");
     setToken(null);
     navigate("/");
+
+    setLoggedUserData(null);
   };
 
   // NAVIGATE
@@ -59,9 +61,11 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <span className="nav-link">
-                <Trans i18nKey="investors"></Trans>
-              </span>
+              <Link to="contactus">
+                <span className="nav-link">
+                  <Trans i18nKey="investors"></Trans>
+                </span>
+              </Link>
             </li>
             <li className="nav-item">
               <Link to="aboutus">
